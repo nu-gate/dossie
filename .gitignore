@@ -1,0 +1,23 @@
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.log
+
+# PDFs originais (não versionar o PDF fonte)
+*.pdf
+
+# Arquivos pessoais/sensíveis
+notas-pessoais.txt
+rascunhos/
