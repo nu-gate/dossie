@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiê Nubank - Relações com Poder Público, Estratégias Fiscais e Governança</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #080808;
+            --text: #b77cf6;
+            --text-dim: #9b4de6;
+            --text-bright: #d2b0ff;
+            --accent: #9b4de6;
+            --border: #9b4de6;
+            --highlight: #121212;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Scanline effect sutil */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            border: 1px solid var(--border);
+            padding: 30px;
+            margin-bottom: 40px;
+            background: var(--highlight);
+            position: relative;
+        }
+
+        .header-label {
+            font-size: 10px;
+            color: var(--text-dim);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .meta {
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta span {
+            margin-right: 20px;
+        }
+
+        /* Sumário */
+        #toc {
+            border: 1px solid var(--border);
+            padding: 25px;
+            margin-bottom: 40px;
+            background: var(--highlight);
+        }
+
+        #toc h2 {
+            font-size: 14px;
+            color: var(--text-bright);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #toc nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #toc a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            padding: 5px 0;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+        }
+
+        #toc a:hover {
+            color: var(--text-bright);
+            border-left-color: var(--accent);
+            padding-left: 15px;
+        }
+
+        /* Seções */
+        section {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: var(--text-bright);
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h2::before {
+            content: "▸ ";
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 16px;
+            color: var(--accent);
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        /* Links de referências */
+        a.ref {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 11px;
+            vertical-align: super;
+            font-weight: 500;
+        }
+
+        a.ref:hover {
+            color: var(--text-bright);
+            text-decoration: underline;
+        }
+
+        /* Citações */
+        blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 25px 0;
+            color: var(--text-bright);
+            font-style: italic;
+            background: var(--highlight);
+            padding: 15px 20px;
+        }
+
+        /* Listas */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Destaques */
+        .highlight-box {
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin: 25px 0;
+            background: var(--highlight);
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+        }
+
+        /* Referências */
+        .references {
+            background: var(--highlight);
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .references h3 {
+            margin-top: 0;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .ref-item {
+            font-size: 11px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        .ref-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .ref-item a {
+            color: var(--accent);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .ref-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 60px;
+        }
+
+        /* Botão voltar ao topo */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            font-weight: 700;
+            z-index: 100;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #back-to-top:hover {
+            background: var(--text-bright);
+        }
+
+        /* Imagens */
+        .logo-header {
+            width: 80px;
+            height: auto;
+            margin: 15px auto 20px;
+            display: block;
+            opacity: 1;
+        }
+
+        .content-image {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid var(--border);
+            margin: 25px auto;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: -20px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            header, #toc, section {
+                padding: 20px;
+            }
+        }
+
+        /* Efeito de cursor piscando no título */
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <img src="assets/images/logo.png" alt="Nubank Logo" class="logo-header">
+            <h1>DOSSIÊ NUBANK<span class="cursor">_</span></h1>
+            <div class="subtitle">Relações com Poder Público, Estratégias Fiscais, Políticas Trabalhistas e Governança Corporativa</div>
+            <div class="meta">
+                <span>ÚLTIMA ATUALIZAÇÃO: 17/11/2025</span>
+                <span>|</span>
+                <span>VERSÃO: 1.0</span>
+                <span>|</span>
+                <span>CLASSIFICAÇÃO: PÚBLICO</span>
+            </div>
+        </header>
+
+        <!-- Sumário -->
+        <div id="toc">
+            <h2>[ ÍNDICE ]</h2>
+            <nav>
+                <a href="#introducao">1. Introdução</a>
+                <a href="#relacoes-publicas">2. Relações com o Setor Público e Reguladores</a>
+                <a href="#estrategias-fiscais">3. Estratégias Fiscais e Estrutura Societária</a>
+                <a href="#cultura-interna">4. Cultura Interna, Conflitos e Políticas Trabalhistas</a>
+                <a href="#padroes">5. Padrões de Comportamento e Governança Corporativa</a>
+                <a href="#conclusao">6. Conclusão</a>
+                <a href="#referencias">7. Referências</a>
+            </nav>
+        </div>
+
+        <!-- Main content -->
+        <main>
+            <!-- Seção 1: Introdução -->
+            <section id="introducao">
+                <h2>1. Introdução</h2>
+
+                <img src="assets/images/intro.webp" alt="Nubank - Fintech brasileira" class="content-image">
+                <p class="image-caption">O Nubank transformou-se de startup disruptiva em gigante financeiro avaliado em mais de R$ 200 bilhões</p>
+
+                <p>O Nubank, fundado em 2013 e hoje uma das maiores fintechs da América Latina, alcançou um crescimento meteórico e status de gigante financeiro. Em 2025, tornou-se a marca de maior valor no Brasil, avaliada em R$ 214,76 bilhões – superando bancos tradicionais como Itaú e marcas de peso como a operadora Vivo. Com mais de 120 milhões de clientes e presença em vários países, o Nubank projeta uma imagem de inovação, inclusão financeira e ruptura da burocracia bancária. A empresa se orgulha de "simplificar a vida financeira" com tecnologia, eficiência e baixo custo, desafiando o oligopólio bancário estabelecido. Essa trajetória atraiu investidores de renome – desde fundos internacionais de tecnologia até o conglomerado de Warren Buffett (Berkshire Hathaway), um dos primeiros apoiadores da fintech.</p>
+
+                <p>Entretanto, junto à expansão exponencial vieram escrutínios e controvérsias. Por trás do êxito e do marketing otimista, o Nubank passou a enfrentar críticas crescentes sobre práticas institucionais controversas. Este dossiê analítico examina criticamente pontos sensíveis envolvendo o banco digital – de relações com o poder público e estratégias fiscais agressivas a conflitos trabalhistas internos, denúncias de juros abusivos e falhas de responsabilização. À medida que o Nubank deixa de ser apenas uma startup outsider e se consolida como ator central do sistema financeiro, surgem dúvidas sobre até que ponto seu modelo “disruptivo” concilia inovação com ética, transparência e equilíbrio entre interesse privado e interesse público. A seguir, exploramos esses temas de forma integrada e crítica, com base em fontes públicas e registros verificáveis, buscando iluminar o fenômeno Nubank além da superfície.</p>
+            </section>
+
+            <!-- Seção 2: Relações Públicas -->
+            <section id="relacoes-publicas">
+                <h2>2. Relações com o Setor Público e Reguladores</h2>
+
+                <h3>Crescimento da Fintech e Brechas Regulatórias</h3>
+
+                <p>Desde o princípio, a trajetória do Nubank esteve entrelaçada com a evolução do arcabouço regulatório para fintechs no Brasil. Diferentemente dos bancos tradicionais, o Nubank inicialmente operou sob regras mais leves – beneficiando-se de normativas a partir de 2018 que criaram categorias especiais para empresas financeiras de tecnologia. O modelo do Nubank explorou brechas no arcabouço regulatório financeiro: a empresa opera como instituição de pagamento digital, não como banco tradicional no sentido estrito, o que lhe confere agilidade operacional – sem exigências de rede física de agências ou diversas obrigações burocráticas de um banco de varejo convencional.<a href="#ref1" class="ref">[1]</a></p>
+
+                <p>Isso permitiu à fintech oferecer serviços bancários sem se submeter de imediato a todas as exigências rígidas impostas aos bancos convencionais. Fintechs como o Nubank gozaram, por exemplo, de tributação reduzida e menor carga regulatória trabalhista em seus primeiros anos, algo que fomentou a inovação e a concorrência, mas também gerou críticas de bancos incumbentes sobre um campo de jogo desigual. De fato, o Banco Central chegou a abrir consulta pública para evitar que empresas sem licença bancária completa usem o termo "banco" em nome, justamente para diferenciar fintechs como o Nubank.<a href="#ref1" class="ref">[1]</a> O Nubank respondeu que já possui todas as licenças necessárias de instituição de pagamento e que esse nome faz parte de seu reconhecimento de mercado.<a href="#ref1" class="ref">[1]</a></p>
+
+                <h3>Disputas Tributárias e Isonomia Fiscal</h3>
+
+                <p>No campo tributário houve disputas acaloradas quanto à isonomia fiscal entre fintechs e bancos tradicionais. A Federação Brasileira de Bancos (Febraban) argumenta que fintechs pagam alíquotas menores. Estudos do setor bancário apontam que a Contribuição Social sobre Lucro Líquido (CSLL) de fintechs efetivamente fica 5 a 11 pontos percentuais abaixo do praticado por bancos,<a href="#ref2" class="ref">[2]</a> gerando protestos do setor tradicional. Já o Nubank, através da associação Zetta, rebate que fintechs pagam impostos efetivos mais altos – citando 29,4% de alíquota efetiva em 2024, contra 4,7–17,3% para grandes bancos – e defende a isonomia mas sem penalizar a inovação.<a href="#ref3" class="ref">[3]</a></p>
+
+                <p>Esses debates ilustram como o Nubank usufruiu de regulações diferenciadas para crescer, mas também gerou demanda de bancos concorrentes e do Estado por tratamentos fiscais mais homogêneos. Em 2025, o governo federal tentou aumentar tributos sobre créditos digitais (MP 1.303/2023, elevando IOF), mas recuou após forte pressão e rejeição no Congresso.<a href="#ref2" class="ref">[2]</a> Projetos de lei e medidas provisórias recentes refletem essa tensão crescente no setor financeiro.</p>
+
+                <div class="highlight-box">
+                    <h3>A Porta Giratória</h3>
+                    <p>Conforme cresceu, o Nubank adotou uma postura cada vez mais próxima dos círculos de poder e influência. A empresa passou a dialogar ativamente com Brasília, integrou-se a associações do setor (tornou-se membro da Febraban em 2020) e buscou influenciar políticas públicas. Em 2025, essa aproximação ficou evidente – e polêmica – com a contratação de dois ex-diretores do Banco Central pouco após deixarem seus cargos.</p>
+                </div>
+
+                <p>Roberto Campos Neto, presidente do BC de 2019 a 2024, foi contratado como Vice-Chairman do Nubank e chefe global de Políticas Públicas, assim que cumpriu a quarentena legal de seis meses. Poucos dias depois, o Nubank anunciou a vinda de Otávio Damaso, ex-diretor de regulação do BC, como consultor para riscos e compliance. Colocar duas das principais autoridades regulatórias do ciclo anterior na folha de pagamento gerou imediato mal-estar no movimento sindical e entre observadores do setor.<a href="#ref4" class="ref">[4]</a></p>
+
+                <blockquote>
+                    "O Sindicato dos Bancários de São Paulo chamou a contratação desses ex-autoridades de exemplo clássico de 'porta giratória', onde reguladores se tornam executivos de empresas que já foram objeto de sua regulação."
+                </blockquote>
+
+                <p>Afinal, durante a gestão Campos Neto/Damaso, o BC implementou políticas muito favoráveis às fintechs – como o Open Banking/Finance, que obrigou bancos a compartilhar dados com startups – e impôs exigências proporcionalmente menores a essas empresas em comparação aos bancos tradicionais. A ida desses ex-reguladores ao Nubank levanta dúvidas sobre captura regulatória, comprometendo a confiança na imparcialidade das regras do jogo. O sindicato questiona até que ponto decisões do Banco Central beneficiaram indiretamente o Nubank, criando dúvidas sobre neutralidade regulatória.<a href="#ref4" class="ref">[4]</a></p>
+
+                <p>Embora Campos Neto tenha respeitado a quarentena exigida em lei e só assumido no Nubank em julho de 2025, a repercussão negativa foi grande: para críticos, o Nubank estaria "moldando as regras de dentro", ao cooptar expertise pública em benefício próprio.</p>
+
+                <h3>Convênios e Parcerias com o Setor Público</h3>
+
+                <p>Paralelamente, o Nubank também cultivou relações institucionais via parcerias com governos. Em 2024, a fintech assinou contratos de crédito consignado com os estados do Rio de Janeiro e Minas Gerais, além de convênios anteriores para atender funcionários públicos federais, militares e servidores de São Paulo, Belo Horizonte e Paraná.<a href="#ref5" class="ref">[5]</a> Essas colaborações ampliaram a presença do Nubank no segmento do setor público, proporcionando acesso a milhões de potenciais clientes.</p>
+
+                <p>No entanto, o conjunto dessas relações público-privadas evidencia um duplo desafio: por um lado, a fintech ganha capilaridade e legitimidade institucional; por outro, precisa provar que sua influência crescente não atropela princípios éticos ou a concorrência leal. Críticos veem aí um risco de que interesses privados influenciem políticas públicas de inclusão financeira, ao mesmo tempo em que ampliam o poder de negociação da fintech junto ao Estado.<a href="#ref4" class="ref">[4]</a><a href="#ref5" class="ref">[5]</a></p>
+
+                <p>Reguladores e legisladores enfrentam agora perguntas espinhosas: quando uma fintech passa a ser grande demais para ter regulação branda? Até que ponto a expertise de ex-agentes públicos pode ser aproveitada sem ferir a integridade das instituições? O caso Nubank reacendeu esse debate sobre ética na governança do sistema financeiro, indicando que as respostas transcendem a empresa e tocam o próprio modelo de supervisão do setor financeiro.</p>
+            </section>
+
+            <!-- Seção 3: Estratégias Fiscais -->
+            <section id="estrategias-fiscais">
+                <h2>3. Estratégias Fiscais e Estrutura Societária</h2>
+
+                <h3>Sede nas Ilhas Cayman</h3>
+
+                <p>Outro eixo fundamental do "modelo Nubank" reside em sua estrutura societária internacional e opções fiscais agressivas. Desde 2020, a controladora do Nubank (Nu Holdings Ltd.) está legalmente sediada nas Ilhas Cayman, um reconhecido paraíso fiscal.<a href="#ref6" class="ref">[6]</a> Essa decisão faz parte de uma estratégia deliberada de otimização tributária e acesso a capital estrangeiro, facilitando investimentos internacionais e reduzindo significativamente a carga tributária global da empresa.</p>
+
+                <p>As Ilhas Cayman não cobram impostos corporativos, tampouco tributos sobre ganhos de capital ou dividendos, o que representa uma economia significativa para empresas ali registradas. De fato, ao incorporar-se offshore, usufruindo de alíquotas reduzidas e sigilo jurídico, o Nubank seguiu as regras do jogo global e pôde reinvestir mais recursos em sua expansão – mas escancarou as disparidades tributárias em relação a competidores locais.<a href="#ref7" class="ref">[7]</a></p>
+
+                <p>Durante anos, a fintech pagou proporcionalmente menos impostos no Brasil do que bancos tradicionais, aproveitando brechas legais. Esse arranjo gerou críticas de que o Nubank estaria "arbitrando" entre jurisdições para driblar obrigações: instalou sua holding num paraíso fiscal, operou no Brasil sob autorização especial de capital estrangeiro, e manteve seus funcionários fora da convenção coletiva bancária (logo, sem direitos trabalhistas equiparáveis aos dos bancários). Internamente, o Nubank mantém uma estrutura fragmentada de entidades legais: Nubank Brasil, Nu México, Nu Colômbia, entre outras, cada uma operando sob diferentes regimes regulatórios e fiscais.</p>
+
+                <div class="highlight-box">
+                    <h3>Mudança Estratégica para o Reino Unido</h3>
+                    <p>Em novembro de 2024, rumores (confirmados depois pela própria empresa) revelaram que a Nu Holdings considera migrar seu domicílio legal das Ilhas Cayman para o Reino Unido. As negociações teriam envolvido até o governo britânico, interessado em atrair empresas de tecnologia para Londres, e foram discutidas à margem do G20 no Rio de Janeiro.<a href="#ref6" class="ref">[6]</a> A empresa afirma que essa reestruturação atende melhor à sua área de atuação internacional e que manterá transparência caso avance para realocação jurídica.</p>
+                </div>
+
+                <p>O resultado dessa estrutura societária complexa é que parte significativa dos lucros e patrimônio fica em jurisdições de baixa tributação. Isso levanta questionamentos sobre compliance e transparência fiscal: até que ponto a fintech contribui proporcionalmente para os cofres brasileiros? Analistas notam que as práticas de "planejamento tributário" do grupo reduzem a carga contributiva global – o que financistas elogiam como eficiência, mas críticos veem como erosão da base tributária nacional.</p>
+
+                <h3>Ajustes sob Pressão Pública</h3>
+
+                <p>Diante da pressão pública por maior equidade tributária, o Nubank precisou ajustar sua narrativa. Em 2023, o governo brasileiro aprovou a equiparação de alíquotas de Contribuição Social sobre Lucro para fintechs, eliminando um benefício de que o Nubank usufruía. A empresa então argumentou que já pagava efetivamente mais impostos que os bancões, alegando que muitos grandes bancos utilizam artifícios (como isenções em juros sobre capital próprio) para reduzir sua carga fiscal.<a href="#ref3" class="ref">[3]</a></p>
+
+                <h3>David Vélez e o Uruguai</h3>
+
+                <img src="assets/images/david_velez..jpeg" alt="David Vélez, CEO do Nubank" class="content-image">
+                <p class="image-caption">David Vélez, CEO e cofundador do Nubank, mudou domicílio fiscal para o Uruguai em 2024</p>
+
+                <p>No nível pessoal, as decisões dos controladores do Nubank também refletem estratégias fiscais arrojadas. O cofundador e CEO David Vélez, nascido na Colômbia mas radicado no Brasil por anos, mudou seu domicílio fiscal para o Uruguai em 2024, juntando-se a uma leva de bilionários latino-americanos que adotaram o país vizinho como residência.<a href="#ref8" class="ref">[8]</a> Relatos indicam que, alguns meses antes, Vélez mudou-se com a família para Montevidéu, tornando o Uruguai sede de seus negócios pessoais.</p>
+
+                <p>O Uruguai, sob o governo liberal de Luis Lacalle Pou, implementou em 2020 um regime agressivo de atração de estrangeiros de alto patrimônio: basta passar 60 dias por ano no país e investir US$ 500 mil em imóveis (ou US$ 2,2 milhões em negócios locais) para obter residência fiscal com isenção total de imposto de renda sobre rendimentos do exterior por 11 anos. Após esse período, os rendimentos estrangeiros passam a ser tributados a apenas 12% de forma fixa.<a href="#ref8" class="ref">[8]</a></p>
+
+                <p>Além disso, o Uruguai não cobra imposto sobre doações e heranças – um alívio para planejamentos sucessórios. Essa política, um verdadeiro "tax holiday", caiu como uma luva para magnatas fugindo da crescente carga tributária em países como o Brasil, que discute taxar grandes fortunas, lucros e offshores.</p>
+
+                <blockquote>
+                    "No caso de David Vélez (cuja fortuna pessoal é estimada em US$ 15,5 bilhões), a mudança para Montevidéu tem impactos tanto fiscais quanto simbólicos, afetando a arrecadação do Brasil, pois lucros de venda de ações ou dividendos podem não ser tributados localmente."
+                </blockquote>
+
+                <p>A migração de Vélez ao Uruguai, em particular, tem sido citada como exemplo de como bilionários latino-americanos minimizam impostos sobre fortunas, levantando questões sobre responsabilidade social e contribuição proporcional aos países que abrigaram suas operações de crescimento.</p>
+            </section>
+
+            <!-- Seção 4: Cultura Interna -->
+            <section id="cultura-interna">
+                <h2>4. Cultura Interna, Conflitos e Políticas Trabalhistas</h2>
+
+                <p>Internamente, o Nubank sempre cultivou uma imagem de cultura organizacional diferenciada, com ambiente descontraído, equipes diversas e empoderamento de funcionários – os chamados "nubankers". Nos primeiros anos, essa aura ajudou a atrair talentos e foi vista como vantagem competitiva. Porém, conforme a empresa escalou para milhares de funcionários, essa cultura foi posta à prova em diversas ocasiões, revelando tensões entre o discurso oficial e a realidade da gestão.</p>
+
+                <h3>O Caso Cristina Junqueira e Diversidade Racial (2020)</h3>
+
+                <img src="assets/images/founders.jpg" alt="Fundadores do Nubank" class="content-image">
+                <p class="image-caption">Os cofundadores do Nubank: David Vélez, Cristina Junqueira e Edward Wible</p>
+
+                <p>Um dos primeiros grandes abalos ocorreu em outubro de 2020, quando a cofundadora Cristina Junqueira suscitou polêmica ao tratar de diversidade racial em rede nacional. Questionada no programa Roda Viva sobre a baixa presença de pessoas negras em cargos de liderança no Nubank, Junqueira afirmou que a empresa "não podia nivelar por baixo" seus critérios de contratação para aumentar a diversidade.</p>
+
+                <p>A declaração – entendida como se contratar profissionais negros implicasse baixar o nível – gerou forte reação negativa do público e de movimentos antirracismo. A contradição era gritante: uma companhia jovem, que se pretendia moderna e inclusiva, via sua principal executiva insinuar falta de capacitação de candidatos negros.</p>
+
+                <p>Diante do clamor público, o Nubank agiu rápido em damage control: Junqueira veio a público pedir desculpas, a empresa contratou consultoria externa em diversidade e anunciou um robusto plano de inclusão racial, incluindo investimento de R$ 20 milhões em programas de equidade, revisão de processos seletivos para eliminar vieses inconscientes, abertura de um hub de tecnologia em Salvador para atrair talentos negros, e metas de diversidade atreladas ao bônus da liderança.</p>
+
+                <h3>Polêmica Brasil Paralelo (2024)</h3>
+
+                <p>Outra crise pública envolvendo o alto escalão veio em 2024, mesclando política e cultura corporativa. Novamente Cristina Junqueira esteve no centro: em junho daquele ano, ela compartilhou em redes sociais um convite para um evento da Brasil Paralelo – uma produtora de conteúdo de extrema-direita conhecida por disseminar teorias conspiratórias. A reação interna foi imediata e feroz: muitos funcionários, especialmente grupos minorizados (LGBTQ+, negros), viram o gesto como incompatível com os valores de inclusão que o Nubank professava.<a href="#ref9" class="ref">[9]</a></p>
+
+                <p>Externamente, clientes expressaram repúdio com a hashtag #boicoteNubank e ameaçaram encerrar contas. A situação ganhou contornos explosivos quando descobriu-se que um engenheiro demitido anos antes do Nubank por comportamento xenófobo agora ocupava cargo de direção na Brasil Paralelo – sugerindo complacência passada da empresa com intolerância interna. A empresa precisou emitir nota interna, via seu presidente Youssef Lahrech, afirmando que a ação da diretora "de nenhuma maneira viola nosso Código de Conduta" e que não significava apoio institucional às ideias do evento.<a href="#ref9" class="ref">[9]</a> Embora a empresa tenha garantido neutralidade, o episódio evidenciou o dilema entre posicionamentos pessoais de executivos e os valores públicos da fintech.</p>
+
+                <h3>Fim do Home Office e Conflito Trabalhista</h3>
+
+                <p>O maior conflito trabalhista ocorreu a partir de 2023-2024, conforme sua força de trabalho crescia e amadurecia. O estopim ocorreu em novembro de 2025, quando o Nubank anunciou repentinamente o fim do trabalho 100% remoto que vigorava desde a pandemia. A direção determinou que, a partir da metade de 2026, todos deveriam adotar um modelo híbrido (inicialmente 2 dias por semana no escritório; depois 3 dias semanais a partir de 2027).</p>
+
+                <p>A comunicação foi feita top-down em uma reunião virtual com milhares de funcionários e sem consulta prévia ao corpo de empregados ou ao sindicato. Dado que cerca de 70% dos 9.500 funcionários viviam fora dos polos onde o Nubank tem escritórios, o anúncio causou choque e indignação generalizados.<a href="#ref10" class="ref">[10]</a></p>
+
+                <div class="highlight-box">
+                    <h3>Demissões e Retaliação</h3>
+                    <p>A reação interna veio em forma de críticas contundentes durante e após a reunião. Em vez de absorver o feedback, a gestão partiu para uma resposta dura: demitiu sumariamente 12 funcionários que manifestaram descontentamento mais vocal, acusando-os de comportamento inadequado. Para muitos, o Nubank revelou sua "verdadeira face": um comando rígido, que exige disciplina hierárquica e não tolera contestação.<a href="#ref11" class="ref">[11]</a></p>
+                </div>
+
+                <h3>Organização Sindical e Negociações</h3>
+
+                    <p>A partir daí, o Sindicato dos Bancários assumiu protagonismo. Em novembro de 2025, centenas de funcionários realizaram assembleias e escreveram um manifesto apoiado pelo sindicato dos bancários de São Paulo. No documento, reclamaram que o fim do home office foi imposto sem debate, "em total contraste com o discurso de feedback, diversidade e autonomia" da empresa, e exigiram imediata reversão das demissões de colegas que protestaram.<a href="#ref10" class="ref">[10]</a></p>
+
+                <p>Em 14 de novembro foi realizada plenária virtual com cerca de 300 pessoas, onde dirigentes sindicais e trabalhadores cobraram oficialmente "discussão e negociação sobre a mudança do regime de home office" e a "reversão das demissões".<a href="#ref11" class="ref">[11]</a> Entre as reivindicações listadas pelos empregados e pelo sindicato estavam:</p>
+
+                <ul>
+                    <li>Negociar detalhadamente a nova política de trabalho presencial, evitando imposições súbitas</li>
+                    <li>Reintegração imediata dos funcionários demitidos, restabelecendo a confiança na negociação coletiva</li>
+                    <li>Garantias de não retaliação contra quem protestou e abertura de diálogo contínuo com representantes dos funcionários</li>
+                </ul>
+
+                <p>O sindicato tornou o caso público, condenando as demissões "abusivas" e cobrando a readmissão imediata dos desligados. O movimento culminou em ampla cobertura da mídia e pressão pública. Pressionado, o Nubank foi obrigado a recuar parcialmente: abriu um canal de diálogo com os empregados, comprometeu-se a negociar com a entidade sindical e realizar reuniões periódicas para discutir políticas de trabalho. Até novembro de 2025, permanecem negociações entre a empresa e o sindicato, indicando amadurecimento do conflito para o campo das relações trabalhistas formais.</p>
+
+                <p>O caso ilustra como a cultura supostamente colaborativa do Nubank esbarrou em práticas de gestão autocráticas, levando funcionários organizados a buscar representação sindical para defender direitos. Esses e outros episódios criaram choque cultural entre a gestão e funcionários, gerando dúvidas sobre a coerência da liderança. Em geral, a cada crise reputacional o Nubank reage tardiamente, primeiro sofrendo pressão pública e só depois ajustando comunicação interna.</p>
+
+                <h3>Sobrecarga e Metas Abusivas</h3>
+
+                <p>Adicionalmente, surgiram relatos de sobrecarga e metas abusivas em certos departamentos do Nubank. Desde 2024, o sindicato recebia denúncias de funcionários da Ouvidoria e da área de Fraudes sobre ritmo de trabalho extremo para cumprir métricas de produtividade. Os empregados alegavam estar submetidos a tracking rígido de desempenho, com jornadas extenuantes e temor constante de demissão por baixo rendimento.<a href="#ref12" class="ref">[12]</a></p>
+
+                <h3>Reestruturação e Centralização</h3>
+
+                <p>O próprio CEO, David Vélez, ao consolidar novamente seu controle direto sobre a operação em 2025, promoveu mudanças estruturais significativas: reduziu pela metade os níveis hierárquicos de gestão e passou a acumular mais subordinados diretos, num movimento para "agilizar decisões" e cortar burocracia.<a href="#ref13" class="ref">[13]</a> Essa reorganização, embora apresentada como modernização, reforça a centralização de poder e a gestão autocrática que caracteriza a empresa.</p>
+            </section>
+
+            <!-- Seção 5: Padrões -->
+            <section id="padroes">
+                <h2>5. Padrões de Comportamento e Governança Corporativa</h2>
+
+                <p>Ao conectar todos os eixos analisados – do marketing institucional às práticas fiscais, das relações públicas às políticas de RH –, emergem padrões recorrentes de comportamento por parte do Nubank. Identificar esses padrões ajuda a compreender o fenômeno Nubank em perspectiva e avaliar criticamente seu modelo de negócio enquanto fenômeno setorial.</p>
+
+                <h3>Contraste entre Discurso e Prática: Inclusão vs. Juros Abusivos</h3>
+
+                <p>Um primeiro padrão é o descompasso ocasional entre o que o Nubank comunica publicamente e algumas de suas ações concretas. Externamente, a empresa projeta a imagem de um "banco do futuro" ético e amigável, inimigo das ineficiências e abusos dos bancões. O marketing do Nubank sempre enfatizou a inclusão financeira e o fim das "burocracias" bancárias complicadas, prometendo empoderar pessoas com serviços simples e transparentes.</p>
+
+                <img src="assets/images/cards.png" alt="Cartões Nubank" class="content-image">
+                <p class="image-caption">Os icônicos cartões roxos do Nubank: símbolo da marca que prometia democratizar serviços financeiros</p>
+
+                <p>No entanto, certos episódios mostraram contradições preocupantes. O Nubank cobrava juros rotativos em níveis similares aos dos grandes bancos (acima de 13% ao mês) ao mesmo tempo em que criticava publicamente a prática da "bola de neve" do endividamento. Começaram a surgir denúncias de que a empresa cobraria juros rotativos abusivos em seus cartões de crédito. Em redes sociais e grupos de clientes, circulam relatos de clientes endividados e assustados com cobranças elevadas.</p>
+
+                <div class="highlight-box">
+                    <h3>Ação do Ministério Público</h3>
+                    <p>O caso ganhou repercussão institucional em agosto de 2025, quando o Ministério Público do Estado da Bahia ajuizou ação civil pública contra o Nubank por "práticas de crédito irresponsáveis" que teriam levado ao superendividamento de consumidores.<a href="#ref14" class="ref">[14]</a> O MP-BA detalhou "oferta de produtos sem prévia autorização", falta de informações adequadas, e especialmente "aplicação de taxas e juros abusivos" como irregularidades nas operações de crédito do banco digital. Segundo o MP, houve casos de clientes cobrados indevidamente por dívidas não solicitadas.</p>
+                </div>
+
+                <p>Essa situação contrasta diretamente com a retórica de empoderamento financeiro. Críticos chegaram a chamar o Nubank de "Agiota 5.0" nas redes, ironizando o discurso de inovação. Em resposta, o Nubank afirmou que segue melhores práticas de mercado e possui iniciativas de educação financeira, mas o episódio levantou dúvidas sobre a consistência entre o discurso institucional e a experiência real dos usuários. O incidente deixou claro que a retórica de inclusão financeira colide com acusações de cobrança extorsiva.</p>
+
+                <p>Da mesma forma, pregava ter um ambiente aberto ao diálogo, mas demitiu sumariamente funcionários que questionaram decisões da chefia, revelando um padrão de inconsistência entre valores proclamados e práticas implementadas.</p>
+
+                <h3>Explorar Brechas Regulatórias e Arbitragem</h3>
+
+                <p>Outro padrão claro é o aproveitamento máximo de brechas legais e regulatórias disponíveis. O Nubank sempre operou de olho nas oportunidades de arbitragem regulatória: funcionou por três anos sob licença provisória especial no Brasil, fugindo de limitações impostas a bancos tradicionais; incorporou-se em jurisdições de tributação favorecida; e manteve uma estrutura fragmentada de entidades legais que lhe permitiu evitar certos custos trabalhistas e sindicais.</p>
+
+                <p>Essa estratégia não é exclusiva do Nubank – grandes empresas frequentemente o fazem – mas no caso de uma fintech que ascendeu pregando ruptura ao establishment, fica evidente o quanto ela também usa as regras do establishment a seu favor.</p>
+
+                <h3>Centralização de Poder e Decisões Top-Down</h3>
+
+                <p>A governança corporativa do Nubank reflete uma forte centralização em torno dos fundadores e do núcleo duro de executivos. Desde a estrutura acionária – com ações supervotantes que garantem controle a David Vélez – até decisões gerenciais cotidianas, nota-se que o Nubank opera muito guiado pelo topo.</p>
+
+                <img src="assets/images/ipo.jpeg" alt="IPO do Nubank" class="content-image">
+                <p class="image-caption">Abertura de capital do Nubank na NYSE: IPO consolidou estrutura acionária concentrada e domínio de investidores estrangeiros</p>
+
+                <p>Em termos acionários, o controle da empresa permanece concentrado em poucos grupos. Segundo relatórios pós-IPO, as sete maiores partes somavam quase 70% do capital do Nubank, sendo que a holding do fundador David Vélez detinha cerca de 22,97% das ações totais (mais de 65% das ações ordinárias com voto).<a href="#ref15" class="ref">[15]</a> Seus cofundadores Cristina Junqueira e Edward Wible juntos tinham menos de 5% de participação na época do IPO,<a href="#ref15" class="ref">[15]</a> evidenciando como poder e decisões ficam majoritariamente nas mãos de Vélez e de grandes investidores estrangeiros.</p>
+
+                <p>Essa estrutura reforça a centralização: grandes mudanças internas ou externas foram conduzidas por iniciativa de poucos executivos. A empresa só emitiu comunicados oficiais ou cartas-abertas depois de intensa pressão externa. Esse estilo traz agilidade e coerência estratégica, mas vimos os riscos: a decisão abrupta de acabar com o home office, tomada de cima para baixo sem consulta, ignorou preferências de 90% do quadro e resultou em reações negativas, necessidade de recuos e perda de confiança interna. Internamente, relatos apontam que muitas decisões foram comunicadas sem consulta prévia adequada aos funcionários ou até ao próprio conselho.</p>
+
+                <p>Ao mesmo tempo, o Nubank procura ativamente influência junto a instâncias de poder: não apenas com a contratação de ex-diretores do BC, mas também com busca de favores regulatórios, como convênios públicos e futura licença bancária internacional. Portanto, apesar de ostentar um discurso de inovação social, autonomia e empoderamento, a governança do Nubank parece operar de forma pragmática, priorizando seus objetivos estratégicos.</p>
+
+                <h3>Resposta Rápida a Crises (Damage Control)</h3>
+
+                <p>Em contrapartida ao aspecto reativo, reconheça-se outro padrão: quando finalmente confrontado com uma crise, o Nubank responde com rapidez e vigor para estancar danos. Foi assim na crise racial de 2020 – em poucas semanas lançou um pacote completo de ações de diversidade; na polêmica da Brasil Paralelo – fez reuniões imediatas e o CEO se pronunciou no mesmo dia; e na crise trabalhista – apesar do erro inicial das demissões, em questão de dias a empresa abriu canal de diálogo com o sindicato.</p>
+
+                <h3>Busca de Legitimidade e Influência Institucional</h3>
+
+                <p>Conforme deixou de ser underdog, o Nubank abraçou uma estratégia clara de institucionalização. Isso se manifesta na aproximação com atores-chave: trouxe ex-ministros para dentro, ingressou em fóruns do mercado tradicional, participa de debates públicos respondendo diretamente a autoridades e expande sua atuação política nos bastidores.</p>
+
+                <p>Essa busca de influência indica que o Nubank entende seu papel sistêmico e quer assento à mesa nas discussões que moldam o setor financeiro. É uma evolução notável para quem se vendia como "anti-sistema".</p>
+
+                <h3>Foco Estratégico e Cautela na Expansão</h3>
+
+                <p>Um último padrão a destacar diz respeito à estratégia de negócios subjacente. Diferentemente de muitas startups que diversificam desordenadamente, o Nubank adotou uma expansão focada e disciplinada. Passou anos concentrado em pessoa física antes de iniciar serviços PJ timidamente; entrou em novos países (México, Colômbia) de forma seletiva; e adicionou produtos (cartão, conta, crédito, investimento) de forma gradual e integrada.</p>
+            </section>
+
+            <!-- Seção 6: Conclusão -->
+            <section id="conclusao">
+                <h2>6. Conclusão</h2>
+
+                <p>O Nubank emergiu como um símbolo da transformação digital no setor bancário, provando ser possível desafiar oligopólios com tecnologia, marca jovem e obsessão pela experiência do usuário. Em poucos anos, saiu do zero para se tornar uma potência financeira regional, alcançando valor de mercado comparável aos dos maiores bancos latino-americanos. Contudo, junto a seus inegáveis feitos, o Nubank acumulou também dilemas e responsabilidades proporcionais ao seu tamanho.</p>
+
+                <p>De um lado, o Nubank aproveitou ao máximo um ecossistema favorável – brechas regulatórias, incentivos fiscais, tolerância a modelos de trabalho flexíveis – o que impulsionou sua ascensão. Por outro lado, ao atingir um patamar de protagonismo, a fintech passou a encarar cobranças típicas de incumbentes: que pague impostos como todos, que siga regras trabalhistas, que assuma deveres de estabilidade financeira e segurança sistêmica.</p>
+
+                <p>Suas estreitas ligações com ex-reguladores reacenderam o debate sobre ética público-privada e mostraram que fintechs bem-sucedidas acabam, queiram ou não, envolvidas no jogo político tradicional. Seus atritos internos com funcionários evidenciaram que a cultura "cool" pode rachar sob pressões de crescimento, e que empregados de startups também buscam direitos e voz coletiva assim que percebem incoerências.</p>
+
+                <blockquote>
+                    "O Nubank de 2025 já não é mais apenas uma startup promissora – é uma instituição financeira relevante, com impactos amplos e olhares atentos da sociedade."
+                </blockquote>
+
+                <p>Este dossiê traçou padrões de comportamento da empresa que interligam práticas trabalhistas, políticas públicas, marketing e governança. Vimos que o Nubank tem um histórico de inicialmente minimizar problemas ou operar nos limites regulatórios, para só depois ajustar rota quando pressionado. Tal postura permite avanços rápidos, mas pode cobrar seu preço em confiança e reputação se não evoluir.</p>
+
+                <p>Do ponto de vista institucional, o "modelo Nubank" já provoca reflexões que transcendem a empresa. Reguladores agora discutem quando e como fintechs de grande porte devem ser supervisionadas como bancos tradicionais. Trabalhadores de outras startups observam se a sindicalização no Nubank será bem-sucedida, podendo inspirar movimentos semelhantes no setor de tecnologia financeira. O público se questiona sobre a tributação justa de gigantes digitais.</p>
+
+                <p>Ao final, o Nubank se tornou mais que um banco digital: é um fenômeno que encapsula as tensões de uma economia em rápida mudança. Disrupção versus instituição, modernidade retórica versus práticas tradicionais, globalização financeira versus responsabilidades locais – tudo isso se concentra na experiência dessa empresa.</p>
+
+                <blockquote>
+                    "Como fenômeno, o Nubank nos força a perguntar: estamos diante de um novo paradigma bancário ou apenas de um recomeço das velhas práticas em embalagem roxa?"
+                </blockquote>
+            </section>
+
+            <!-- Seção 7: Referências -->
+            <section id="referencias">
+                <h2>7. Referências</h2>
+
+                <div class="references">
+                    <h3>Fontes Principais</h3>
+
+                    <div class="ref-item" id="ref1">
+                        [1] <a href="https://www.gazetadopovo.com.br/economia/proposta-do-bc-para-mudanca-de-nome-de-fintechs-pode-atingir-nubank-pagbank-e-outros/" target="_blank">Mudança proposta pelo BC pode atingir Nubank, PagBank e outros | Gazeta do Povo</a>
+                    </div>
+
+                    <div class="ref-item" id="ref2">
+                        [2] <a href="https://www.poder360.com.br/poder-economia/fintechs-tem-margem-maior-e-tributo-menor-sobre-lucro-diz-febraban/" target="_blank">Fintechs têm margem maior e tributo menor sobre lucro, diz estudo | Poder360</a>
+                    </div>
+
+                    <div class="ref-item" id="ref3">
+                        [3] <a href="https://international.nubank.com.br/pt-br/companhia/posicionamento-nubank/" target="_blank">Posicionamento Nubank | Nu International</a>
+                    </div>
+
+                    <div class="ref-item" id="ref4">
+                        [4] <a href="https://spbancarios.com.br/07/2025/porta-giratoria-fintechs-e-conflito-de-interesses-o-caso-nubank-expoe-os-limites-da" target="_blank">Porta giratória, fintechs e conflito de interesses: o caso Nubank expõe os limites da regulação financeira no Brasil | Sindicato dos Bancários</a>
+                    </div>
+
+                    <div class="ref-item" id="ref5">
+                        [5] <a href="https://international.nubank.com.br/pt-br/companhia/nubank-firma-convenios-com-rj-e-mg-e-amplia-mercado-total-enderecavel-em-consignado-para-70/" target="_blank">Nubank firma convênios com RJ e MG e amplia mercado total endereçável em consignado para 70% | Nu International</a>
+                    </div>
+
+                    <div class="ref-item" id="ref6">
+                        [6] <a href="https://www.bloomberglinea.com.br/negocios/nubank-conversa-com-reino-unido-para-possivel-mudanca-de-sede-legal-dizem-fontes/" target="_blank">Nubank conversa com Reino Unido para possível mudança de sede legal | Bloomberg Linea</a>
+                    </div>
+
+                    <div class="ref-item" id="ref7">
+                        [7] <a href="https://tellicojus.com/blog/nubank-como-a-empresa-economiza-milhoes-em-impostos-atuando-nas-americas/" target="_blank">Nubank: Como a empresa economiza milhões em impostos atuando nas Américas? | Tellico Jus</a>
+                    </div>
+
+                    <div class="ref-item" id="ref8">
+                        [8] <a href="https://www.seudinheiro.com/2025/economia/o-paraiso-dos-super-ricos-por-que-bilionarios-estao-migrando-para-o-uruguai-otrp/" target="_blank">O paraíso dos super-ricos: por que bilionários estão migrando para o Uruguai | Seu Dinheiro</a>
+                    </div>
+
+                    <div class="ref-item" id="ref9">
+                        [9] <a href="https://apublica.org/2024/06/para-presidente-do-nubank-diretora-que-divulgou-brasil-paralelo-nao-violou-norma-do-banco/" target="_blank">Nubank defende diretora que divulgou Brasil Paralelo | Agência Pública</a>
+                    </div>
+
+                    <div class="ref-item" id="ref10">
+                        [10] <a href="https://spbancarios.com.br/11/2025/nubank-mascara-caiu" target="_blank">Nubank: a máscara caiu? | Sindicato dos Bancários de São Paulo</a>
+                    </div>
+
+                    <div class="ref-item" id="ref11">
+                        [11] <a href="https://www.metropoles.com/negocios/sindicato-marca-reuniao-com-nubank-no-dia-19-para-discutir-demissoes" target="_blank">Sindicato marca reunião com Nubank no dia 19 para discutir demissões | Metrópoles</a>
+                    </div>
+
+                    <div class="ref-item" id="ref12">
+                        [12] <a href="https://spbancarios.com.br/08/2025/nubank-responde-ao-sindicato-sobre-metricas-e-condicoes-de-trabalho-nas-areas-de-ouvidoria" target="_blank">Nubank responde ao Sindicato sobre métricas e condições de trabalho nas áreas de Ouvidoria e Fraudes | Sindicato dos Bancários</a>
+                    </div>
+
+                    <div class="ref-item" id="ref13">
+                        [13] <a href="https://braziljournal.com/founder-mode-on-as-mudancas-que-velez-esta-fazendo-no-nubank/" target="_blank">'Founder mode on': as mudanças que Vélez está fazendo no Nubank | Brazil Journal</a>
+                    </div>
+
+                    <div class="ref-item" id="ref14">
+                        [14] <a href="https://www.correio24horas.com.br/minha-bahia/ministerio-publico-aciona-nubank-por-condutas-abusivas-que-geram-superendividamento-0825" target="_blank">Ministério Público aciona Nubank por condutas abusivas que geram superendividamento | Jornal Correio</a>
+                    </div>
+
+                    <div class="ref-item" id="ref15">
+                        [15] <a href="https://www.tecmundo.com.br/mercado/232261-nubank-saiba-7-maiores-acionistas-banco-digital.htm" target="_blank">Nubank: saiba quem são os 7 maiores acionistas do banco digital | TecMundo</a>
+                    </div>
+
+                    <p style="margin-top: 30px; font-size: 12px; color: var(--text-dim); font-style: italic;">
+                        Nota: Este dossiê foi compilado a partir de fontes públicas disponíveis, incluindo reportagens jornalísticas, declarações oficiais e documentos públicos. Todas as informações aqui contidas podem ser verificadas através das fontes citadas acima.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>[ FIM DO DOCUMENTO ]</p>
+            <p style="margin-top: 10px;">Este é um documento de análise crítica baseado em fontes públicas.</p>
+            <p style="margin-top: 5px; opacity: 0.6;">Dossiê compilado em 17/11/2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Console easter egg
+        console.log('%c[ DOSSIÊ NUBANK ]', 'color: #c084fc; font-family: monospace; font-size: 20px; font-weight: bold;');
+        console.log('%cDocumento confidencial carregado com sucesso.', 'color: #a855f7; font-family: monospace; font-size: 12px;');
+    </script>
+</body>
+</html>
