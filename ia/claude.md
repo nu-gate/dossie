@@ -123,9 +123,10 @@ Emojis são usados estrategicamente para:
 Para atualizar o conteúdo:
 
 1. Edite `content.txt` com o novo texto
-2. Atualize as seções relevantes em `index.html`
+2. Atualize as seções relevantes em `src/index.html`
 3. Adicione novas imagens em `assets/images/`
 4. Teste a navegação e links do sumário
+5. Sempre depois de alterar `src/index.html`, rode `python3 minify.py` na raiz para gerar o `index.html` otimizado
 
 ## Acessibilidade
 

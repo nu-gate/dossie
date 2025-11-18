@@ -96,6 +96,14 @@
             font-weight: 400;
         }
 
+        @media (max-width: 640px) {
+            .subtitle {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+        }
+
+
         .meta {
             font-size: 11px;
             color: var(--text-dim);
@@ -296,7 +304,11 @@
             transition: all 0.3s ease;
             font-size: 20px;
             font-weight: 700;
-            z-index: 100;
+            z-index: 9999; /* acima do overlay de scanline e quaisquer elementos fixos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
         }
 
         #back-to-top.visible {
@@ -377,7 +389,9 @@
         <header>
             <img src="assets/images/logo.png" alt="Nubank Logo" class="logo-header">
             <h1>NU GATE<span class="cursor">_</span></h1>
-            <div class="subtitle">Relações com Poder Público, Estratégias Fiscais, Políticas Trabalhistas e Governança Corporativa</div>
+            <div class="subtitle">Relações com o Poder Público, Estratégias Fiscais, Políticas Trabalhistas e Governança Corporativa
+                — o dossiê que revela o que o marketing não mostra: alianças com o Estado, offshores, repressão interna e as
+                contradições de uma marca bilionária que prometeu reinventar o sistema — mas só o pintou de roxo.</div>
             <div class="meta">
                 <span>ÚLTIMA ATUALIZAÇÃO: 17/11/2025</span>
                 <span>|</span>
@@ -431,12 +445,15 @@
 
                 <p>Esses debates ilustram como o Nubank usufruiu de regulações diferenciadas para crescer, mas também gerou demanda de bancos concorrentes e do Estado por tratamentos fiscais mais homogêneos. Em 2025, o governo federal tentou aumentar tributos sobre créditos digitais (MP 1.303/2023, elevando IOF), mas recuou após forte pressão e rejeição no Congresso.<a href="#ref2" class="ref">[2]</a> Projetos de lei e medidas provisórias recentes refletem essa tensão crescente no setor financeiro.</p>
 
+                
                 <div class="highlight-box">
                     <h3>A Porta Giratória</h3>
                     <p>Conforme cresceu, o Nubank adotou uma postura cada vez mais próxima dos círculos de poder e influência. A empresa passou a dialogar ativamente com Brasília, integrou-se a associações do setor (tornou-se membro da Febraban em 2020) e buscou influenciar políticas públicas. Em 2025, essa aproximação ficou evidente – e polêmica – com a contratação de dois ex-diretores do Banco Central pouco após deixarem seus cargos.</p>
                 </div>
-
+                
                 <p>Roberto Campos Neto, presidente do BC de 2019 a 2024, foi contratado como Vice-Chairman do Nubank e chefe global de Políticas Públicas, assim que cumpriu a quarentena legal de seis meses. Poucos dias depois, o Nubank anunciou a vinda de Otávio Damaso, ex-diretor de regulação do BC, como consultor para riscos e compliance. Colocar duas das principais autoridades regulatórias do ciclo anterior na folha de pagamento gerou imediato mal-estar no movimento sindical e entre observadores do setor.<a href="#ref4" class="ref">[4]</a></p>
+                <img src="assets/images/roberto-campos.jpg" alt="Roberto Campos Neto" class="content-image">
+                <p class="image-caption">Roberto Campos Neto presidiu o Banco Central entre 2019 e 2024.</p>
 
                 <blockquote>
                     "O Sindicato dos Bancários de São Paulo chamou a contratação desses ex-autoridades de exemplo clássico de 'porta giratória', onde reguladores se tornam executivos de empresas que já foram objeto de sua regulação."
@@ -527,19 +544,30 @@
 
                 <div class="highlight-box">
                     <h3>Demissões e Retaliação</h3>
-                    <p>A reação interna veio em forma de críticas contundentes durante e após a reunião. Milhares de funcionários
-                        expressaram descontentamento nos chats por meio de memes, sarcasmo e dúvidas, de maneira crítica, mas sem ferir a
-                        honra de ninguém ou usar agressões; houve, inclusive, relatos de xenofobia (ex.: que seria preciso ir ao escritório
-                        do Rio de Janeiro "apenas com colete à prova de bala").
-                        <img src="assets/images/colete.jpg" alt="Coloque a prova de balas" class="content-image"> Em vez de absorver o
-                        feedback,
-                        a gestão partiu para uma resposta dura e, de forma percebida como arbitrária, demitiu por justa causa apenas 12
-                        funcionários, enquanto muitos demais receberam apenas advertências, embora houvesse relatos de mensagens piores do
-                        que as atribuídas aos demitidos; segundo relatos, em momento algum houve agressão verbal nos registros do chat. Para
-                        muitos, o Nubank revelou sua "verdadeira face": um comando rígido, que exige disciplina hierárquica e não tolera
-                        contestação; o contexto incluiu vazamento de prints do chat nas redes sociais: <img
-                            src="assets/images/xique-xique.jpeg" alt="Xique Xique" class="content-image"><a href="#ref11"
-                            class="ref">[11]</a>
+                    <p>A reação dos funcionários veio de forma crítica e massiva durante e após a reunião geral. Milhares de colaboradores
+                        expressaram indignação nos canais internos: foram publicados memes, comentários irônicos, questionamentos
+                        contundentes — alguns com tom ácido, outros carregados de frustração, mas sem ataques pessoais ou agressões diretas.
+                        Em meio ao calor da discussão, houve relatos isolados de mensagens exageradas, incluindo insinuações xenofóbicas
+                        como a de que seria preciso ir ao escritório do Rio de Janeiro “com colete à prova de balas” — o que gerou incômodo
+                        entre colegas, mas também debate e moderação interna.
+                        <img src="assets/images/colete.jpg" alt="Coloque a prova de balas" class="content-image">
+                    </p>
+                    <p>Mesmo assim, em vez de absorver o feedback e buscar diálogo, a empresa reagiu com uma resposta dura: demitiu por
+                        justa causa 12 funcionários de forma considerada arbitrária por muitos — enquanto outras pessoas, que supostamente
+                        publicaram mensagens mais duras, receberam apenas advertência. Segundo relatos internos e prints compartilhados, não
+                        houve agressão verbal explícita por parte dos demitidos, tampouco ofensas pessoais diretas.</p>
+                    <img src="assets/images/classe.jpg" alt="Consciencia de Classe" class="content-image">
+                    <p class="image-caption">- esse foi um dos escolhidos para receber justa causa 🤨</p>
+                    <p>O que mais gerou revolta foi a forma como a liderança justificou as demissões. Em entrevista ao Terra, o CEO David
+                        Vélez disse: “Você não faz ideia do tipo de linguagem e comportamento dessas pessoas. Confundiram um canal
+                        corporativo com rede social ou arquibancada de estádio. Você não aceitaria esse comportamento na sua própria
+                        casa.”<a href="#ref12" class="ref">[12]</a></p>
+                    <img src="assets/images/hello-ex-nubankers.jpg" alt="Consciencia de Classe" class="content-image">
+                    <p>A fala reforçou a sensação, entre muitos funcionários, de que a gestão trata contestação com repressão. Para parte da
+                        equipe, o Nubank expôs sua “verdadeira face”: uma cultura que promove discurso aberto até o momento em que esse
+                        discurso questiona o topo. A punição exemplar dos 12 demitidos pareceu mais uma forma de controle do que de justiça
+                        — e marcou um ponto de ruptura entre a imagem moderna do “banco roxo” e a experiência real de seus trabalhadores.
+                        <img src="assets/images/xique-xique.jpeg" alt="Xique Xique" class="content-image">
                     </p>
                 </div>
 
@@ -561,11 +589,18 @@
 
                 <h3>Sobrecarga e Metas Abusivas</h3>
 
-                <p>Adicionalmente, surgiram relatos de sobrecarga e metas abusivas em certos departamentos do Nubank. Desde 2024, o sindicato recebia denúncias de funcionários da Ouvidoria e da área de Fraudes sobre ritmo de trabalho extremo para cumprir métricas de produtividade. Os empregados alegavam estar submetidos a tracking rígido de desempenho, com jornadas extenuantes e temor constante de demissão por baixo rendimento.<a href="#ref12" class="ref">[12]</a></p>
+                <p>Adicionalmente, surgiram relatos de sobrecarga e metas abusivas em certos departamentos do Nubank. Desde 2024, o
+                    sindicato recebia denúncias de funcionários da Ouvidoria e da área de Fraudes sobre ritmo de trabalho extremo para
+                    cumprir métricas de produtividade. Os empregados alegavam estar submetidos a tracking rígido de desempenho, com
+                    jornadas extenuantes e temor constante de demissão por baixo rendimento.<a href="#ref13" class="ref">[13]</a></p>
 
                 <h3>Reestruturação e Centralização</h3>
 
-                <p>O próprio CEO, David Vélez, ao consolidar novamente seu controle direto sobre a operação em 2025, promoveu mudanças estruturais significativas: reduziu pela metade os níveis hierárquicos de gestão e passou a acumular mais subordinados diretos, num movimento para "agilizar decisões" e cortar burocracia.<a href="#ref13" class="ref">[13]</a> Essa reorganização, embora apresentada como modernização, reforça a centralização de poder e a gestão autocrática que caracteriza a empresa.</p>
+                <p>O próprio CEO, David Vélez, ao consolidar novamente seu controle direto sobre a operação em 2025, promoveu mudanças
+                    estruturais significativas: reduziu pela metade os níveis hierárquicos de gestão e passou a acumular mais
+                    subordinados diretos, num movimento para "agilizar decisões" e cortar burocracia.<a href="#ref14"
+                        class="ref">[14]</a> Essa reorganização, embora apresentada como modernização, reforça a centralização de poder
+                    e a gestão autocrática que caracteriza a empresa.</p>
             </section>
 
             <!-- Seção 5: Padrões -->
@@ -585,7 +620,23 @@
 
                 <div class="highlight-box">
                     <h3>Ação do Ministério Público</h3>
-                    <p>O caso ganhou repercussão institucional em agosto de 2025, quando o Ministério Público do Estado da Bahia ajuizou ação civil pública contra o Nubank por "práticas de crédito irresponsáveis" que teriam levado ao superendividamento de consumidores.<a href="#ref14" class="ref">[14]</a> O MP-BA detalhou "oferta de produtos sem prévia autorização", falta de informações adequadas, e especialmente "aplicação de taxas e juros abusivos" como irregularidades nas operações de crédito do banco digital. Segundo o MP, houve casos de clientes cobrados indevidamente por dívidas não solicitadas.</p>
+                    <p>O caso ganhou repercussão institucional em agosto de 2025, quando o Ministério Público do Estado da Bahia ajuizou
+                        ação civil pública contra o Nubank por "práticas de crédito irresponsáveis" que teriam levado ao superendividamento
+                        de consumidores.<a href="#ref15" class="ref">[15]</a> O MP-BA detalhou "oferta de produtos sem prévia autorização",
+                        falta de informações adequadas, e especialmente "aplicação de taxas e juros abusivos" como irregularidades nas
+                        operações de crédito do banco digital. Segundo o MP, houve casos de clientes cobrados indevidamente por dívidas não
+                        solicitadas.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h3>Disputa de Tarifas com Mastercard</h3>
+                        <p>Outro caso ocorreu em 2021, quando a adquirente Getnet processou a Mastercard e o Nubank por suposto abuso de
+                            poder econômico. A acusação afirmava que os cartões pré-pagos do Nubank, usados como débito, eram tarifados em
+                            1,2% — quase o dobro do teto de 0,5%-0,8% definido pelo Banco Central — gerando prejuízo estimado em R$ 62
+                            milhões para adquirentes.<a href="#ref16" class="ref">[16]</a></p>
+                        <p>O episódio ilustra a dissonância entre discurso e prática: enquanto o Nubank se apresentava como antítese dos
+                            bancões, operava em aliança com uma grande bandeira global para cobrar acima do padrão regulatório, preservando
+                            margens ocultas às custas da concorrência.<a href="#ref16" class="ref">[16]</a></p>
                 </div>
 
                 <p>Essa situação contrasta diretamente com a retórica de empoderamento financeiro. Críticos chegaram a chamar o Nubank de "Agiota 5.0" nas redes, ironizando o discurso de inovação. Em resposta, o Nubank afirmou que segue melhores práticas de mercado e possui iniciativas de educação financeira, mas o episódio levantou dúvidas sobre a consistência entre o discurso institucional e a experiência real dos usuários. O incidente deixou claro que a retórica de inclusão financeira colide com acusações de cobrança extorsiva.</p>
@@ -598,6 +649,17 @@
 
                 <p>Essa estratégia não é exclusiva do Nubank – grandes empresas frequentemente o fazem – mas no caso de uma fintech que ascendeu pregando ruptura ao establishment, fica evidente o quanto ela também usa as regras do establishment a seu favor.</p>
 
+                <div class="highlight-box">
+                    <h3>Falhas e Golpes na Plataforma</h3>
+                    <p>Além dos juros e tarifas controversas, clientes relatam prejuízos com o “golpe do acesso remoto”, em que
+                        aplicativos maliciosos tomam o controle do celular e esvaziam contas em segundos. O Idec notificou o Nubank após
+                        uma onda de denúncias e lembrou que o banco tem responsabilidade objetiva pela segurança do serviço.<a
+                            href="#ref17" class="ref">[17]</a></p>
+                    <p>Em outro caso, o TJ-SP condenou o Nubank por falhas no “golpe da falsa central” contra uma cliente idosa,
+                        entendendo que a instituição contribuiu para o resultado danoso ao não evitar a fraude.<a href="#ref18"
+                            class="ref">[18]</a></p>
+                </div>
+
                 <h3>Centralização de Poder e Decisões Top-Down</h3>
 
                 <p>A governança corporativa do Nubank reflete uma forte centralização em torno dos fundadores e do núcleo duro de executivos. Desde a estrutura acionária – com ações supervotantes que garantem controle a David Vélez – até decisões gerenciais cotidianas, nota-se que o Nubank opera muito guiado pelo topo.</p>
@@ -605,7 +667,12 @@
                 <img src="assets/images/ipo.jpeg" alt="IPO do Nubank" class="content-image">
                 <p class="image-caption">Abertura de capital do Nubank na NYSE: IPO consolidou estrutura acionária concentrada e domínio de investidores estrangeiros</p>
 
-                <p>Em termos acionários, o controle da empresa permanece concentrado em poucos grupos. Segundo relatórios pós-IPO, as sete maiores partes somavam quase 70% do capital do Nubank, sendo que a holding do fundador David Vélez detinha cerca de 22,97% das ações totais (mais de 65% das ações ordinárias com voto).<a href="#ref15" class="ref">[15]</a> Seus cofundadores Cristina Junqueira e Edward Wible juntos tinham menos de 5% de participação na época do IPO,<a href="#ref15" class="ref">[15]</a> evidenciando como poder e decisões ficam majoritariamente nas mãos de Vélez e de grandes investidores estrangeiros.</p>
+                <p>Em termos acionários, o controle da empresa permanece concentrado em poucos grupos. Segundo relatórios pós-IPO, as
+                    sete maiores partes somavam quase 70% do capital do Nubank, sendo que a holding do fundador David Vélez detinha
+                    cerca de 22,97% das ações totais (mais de 65% das ações ordinárias com voto).<a href="#ref19" class="ref">[19]</a>
+                    Seus cofundadores Cristina Junqueira e Edward Wible juntos tinham menos de 5% de participação na época do IPO,<a
+                        href="#ref19" class="ref">[19]</a> evidenciando como poder e decisões ficam majoritariamente nas mãos de Vélez e
+                    de grandes investidores estrangeiros.</p>
 
                 <p>Essa estrutura reforça a centralização: grandes mudanças internas ou externas foram conduzidas por iniciativa de poucos executivos. A empresa só emitiu comunicados oficiais ou cartas-abertas depois de intensa pressão externa. Esse estilo traz agilidade e coerência estratégica, mas vimos os riscos: a decisão abrupta de acabar com o home office, tomada de cima para baixo sem consulta, ignorou preferências de 90% do quadro e resultou em reações negativas, necessidade de recuos e perda de confiança interna. Internamente, relatos apontam que muitas decisões foram comunicadas sem consulta prévia adequada aos funcionários ou até ao próprio conselho.</p>
 
@@ -630,21 +697,21 @@
             <section id="conclusao">
                 <h2>6. Conclusão</h2>
 
-                <p>O Nubank emergiu como um símbolo da transformação digital no setor bancário, provando ser possível desafiar oligopólios com tecnologia, marca jovem e obsessão pela experiência do usuário. Em poucos anos, saiu do zero para se tornar uma potência financeira regional, alcançando valor de mercado comparável aos dos maiores bancos latino-americanos. Contudo, junto a seus inegáveis feitos, o Nubank acumulou também dilemas e responsabilidades proporcionais ao seu tamanho.</p>
+                <p>O Nubank nasceu prometendo romper com tudo o que os bancos representavam: burocracia, concentração, abusos. Mas, ao
+                    atingir o topo, incorporou práticas e estruturas que refletem justamente o que dizia combater.</p>
 
-                <p>De um lado, o Nubank aproveitou ao máximo um ecossistema favorável – brechas regulatórias, incentivos fiscais, tolerância a modelos de trabalho flexíveis – o que impulsionou sua ascensão. Por outro lado, ao atingir um patamar de protagonismo, a fintech passou a encarar cobranças típicas de incumbentes: que pague impostos como todos, que siga regras trabalhistas, que assuma deveres de estabilidade financeira e segurança sistêmica.</p>
+                <p>Ao longo deste dossiê, vimos como a fintech mais valiosa do Brasil se beneficiou de brechas regulatórias, abrigou-se
+                    em paraísos fiscais, aproximou-se do poder público, centralizou decisões em uma elite executiva e reprimiu seus
+                    próprios funcionários diante da mínima contestação. Tudo isso enquanto mantinha, para fora, um discurso de
+                    transparência, inclusão e inovação.</p>
 
-                <p>Suas estreitas ligações com ex-reguladores reacenderam o debate sobre ética público-privada e mostraram que fintechs bem-sucedidas acabam, queiram ou não, envolvidas no jogo político tradicional. Seus atritos internos com funcionários evidenciaram que a cultura "cool" pode rachar sob pressões de crescimento, e que empregados de startups também buscam direitos e voz coletiva assim que percebem incoerências.</p>
+                <p>Sua conduta diante de crises — da demissão de trabalhadores à omissão em casos de fraude contra clientes — expõe uma
+                    lógica empresarial fria, disciplinadora e estrategicamente moldada para manter controle e maximizar ganhos, mesmo às
+                    custas da própria cultura interna e da confiança pública.</p>
 
-                <blockquote>
-                    "O Nubank de 2025 já não é mais apenas uma startup promissora – é uma instituição financeira relevante, com impactos amplos e olhares atentos da sociedade."
-                </blockquote>
-
-                <p>Este dossiê traçou padrões de comportamento da empresa que interligam práticas trabalhistas, políticas públicas, marketing e governança. Vimos que o Nubank tem um histórico de inicialmente minimizar problemas ou operar nos limites regulatórios, para só depois ajustar rota quando pressionado. Tal postura permite avanços rápidos, mas pode cobrar seu preço em confiança e reputação se não evoluir.</p>
-
-                <p>Do ponto de vista institucional, o "modelo Nubank" já provoca reflexões que transcendem a empresa. Reguladores agora discutem quando e como fintechs de grande porte devem ser supervisionadas como bancos tradicionais. Trabalhadores de outras startups observam se a sindicalização no Nubank será bem-sucedida, podendo inspirar movimentos semelhantes no setor de tecnologia financeira. O público se questiona sobre a tributação justa de gigantes digitais.</p>
-
-                <p>Ao final, o Nubank se tornou mais que um banco digital: é um fenômeno que encapsula as tensões de uma economia em rápida mudança. Disrupção versus instituição, modernidade retórica versus práticas tradicionais, globalização financeira versus responsabilidades locais – tudo isso se concentra na experiência dessa empresa.</p>
+                <p>Mais do que um caso isolado, o Nubank representa um modelo em ascensão: o da fintech que se vende como libertadora,
+                    mas que, ao ganhar poder, reproduz os vícios de sempre — com linguagem jovem, estética roxa e eficiência narrativa.
+                </p>
 
                 <blockquote>
                     "Como fenômeno, o Nubank nos força a perguntar: estamos diante de um novo paradigma bancário ou apenas de um recomeço das velhas práticas em embalagem roxa?"
@@ -703,20 +770,54 @@
                     </div>
 
                     <div class="ref-item" id="ref12">
-                        [12] <a href="https://spbancarios.com.br/08/2025/nubank-responde-ao-sindicato-sobre-metricas-e-condicoes-de-trabalho-nas-areas-de-ouvidoria" target="_blank">Nubank responde ao Sindicato sobre métricas e condições de trabalho nas áreas de Ouvidoria e Fraudes | Sindicato dos Bancários</a>
+                        [12] <a
+                            href="https://www.terra.com.br/economia/fundador-do-nubank-diz-que-funcionarios-confundiram-canal-corporativo-com-estadio-de-futebol,86e0b80ca43c1ce480040aa0f55a838aqw5gc094.html"
+                            target="_blank">Fundador do Nubank diz que funcionários confundiram canal corporativo com estádio de futebol |
+                            Terra</a>
                     </div>
 
                     <div class="ref-item" id="ref13">
-                        [13] <a href="https://braziljournal.com/founder-mode-on-as-mudancas-que-velez-esta-fazendo-no-nubank/" target="_blank">'Founder mode on': as mudanças que Vélez está fazendo no Nubank | Brazil Journal</a>
+                        [13] <a
+                            href="https://spbancarios.com.br/08/2025/nubank-responde-ao-sindicato-sobre-metricas-e-condicoes-de-trabalho-nas-areas-de-ouvidoria"
+                            target="_blank">Nubank responde ao Sindicato sobre métricas e condições de trabalho nas áreas de Ouvidoria e Fraudes
+                            | Sindicato dos Bancários</a>
                     </div>
 
                     <div class="ref-item" id="ref14">
-                        [14] <a href="https://www.correio24horas.com.br/minha-bahia/ministerio-publico-aciona-nubank-por-condutas-abusivas-que-geram-superendividamento-0825" target="_blank">Ministério Público aciona Nubank por condutas abusivas que geram superendividamento | Jornal Correio</a>
+                        [14] <a href="https://braziljournal.com/founder-mode-on-as-mudancas-que-velez-esta-fazendo-no-nubank/"
+                            target="_blank">'Founder mode on': as mudanças que Vélez está fazendo no Nubank | Brazil Journal</a>
                     </div>
 
                     <div class="ref-item" id="ref15">
-                        [15] <a href="https://www.tecmundo.com.br/mercado/232261-nubank-saiba-7-maiores-acionistas-banco-digital.htm" target="_blank">Nubank: saiba quem são os 7 maiores acionistas do banco digital | TecMundo</a>
-                    </div>
+                        [15] <a
+                            href="https://www.correio24horas.com.br/minha-bahia/ministerio-publico-aciona-nubank-por-condutas-abusivas-que-geram-superendividamento-0825"
+                            target="_blank">Ministério Público aciona Nubank por condutas abusivas que geram superendividamento | Jornal
+                            Correio</a>
+                        </div>
+                        
+                        <div class="ref-item" id="ref16">
+                            [16] <a
+                                href="https://valor.globo.com/financas/noticia/2021/08/27/getnet-entra-na-justica-contra-mastercard-e-nubank-por-tarifas-no-debito.ghtml"
+                                target="_blank">Getnet entra na Justiça contra Mastercard e Nubank por tarifas no débito | Valor Econômico</a>
+                        </div>
+                        
+                        <div class="ref-item" id="ref17">
+                            [17] <a
+                                href="https://www.uol.com.br/tilt/noticias/redacao/2023/06/16/clientes-do-nubank-relatam-prejuizos-com-golpe-do-acesso-remoto.htm"
+                                target="_blank">Clientes do Nubank relatam prejuízos com golpe do acesso remoto; Idec cobra explicações | UOL
+                                Tilt</a>
+                        </div>
+                        
+                        <div class="ref-item" id="ref18">
+                            [18] <a
+                                href="https://www.migalhas.com.br/quentes/393896/nubank-e-condenado-a-ressarcir-idosa-por-golpe-do-falso-funcionario"
+                                target="_blank">Nubank é condenado a ressarcir idosa por golpe do falso funcionário | Migalhas</a>
+                        </div>
+                        
+                        <div class="ref-item" id="ref19">
+                            [19] <a href="https://www.tecmundo.com.br/mercado/232261-nubank-saiba-7-maiores-acionistas-banco-digital.htm"
+                                target="_blank">Nubank: saiba quem são os 7 maiores acionistas do banco digital | TecMundo</a>
+                        </div>
 
                     <p style="margin-top: 30px; font-size: 12px; color: var(--text-dim); font-style: italic;">
                         Nota: Este dossiê foi compilado a partir de fontes públicas disponíveis, incluindo reportagens jornalísticas, declarações oficiais e documentos públicos. Todas as informações aqui contidas podem ser verificadas através das fontes citadas acima.
@@ -729,21 +830,24 @@
         <footer>
             <p>[ FIM DO DOCUMENTO ]</p>
             <p style="margin-top: 10px;">Este é um documento de análise crítica baseado em fontes públicas.</p>
-            <p style="margin-top: 5px; opacity: 0.6;">Dossiê compilado em 17/11/2025</p>
+            <p style="margin-top: 5px; opacity: 0.6;">Versão 1.1 — atualizada em 18/11/2025</p>
         </footer>
     </div>
 
     <script>
-        // Back to top button
         const backToTop = document.getElementById('back-to-top');
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 500) {
+                        const toggleBackToTop = () => {
+                            const scrollY = window.scrollY || document.documentElement.scrollTop;
+                            if (scrollY > 500) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
             }
-        });
+                        };
+
+                        window.addEventListener('scroll', toggleBackToTop);
+                        toggleBackToTop();
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({
@@ -752,7 +856,6 @@
             });
         });
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -766,7 +869,6 @@
             });
         });
 
-        // Console easter egg
         console.log('%c[ DOSSIÊ NUBANK ]', 'color: #c084fc; font-family: monospace; font-size: 20px; font-weight: bold;');
         console.log('%cDocumento confidencial carregado com sucesso.', 'color: #a855f7; font-family: monospace; font-size: 12px;');
     </script>

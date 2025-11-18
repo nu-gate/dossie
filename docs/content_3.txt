@@ -1,0 +1,11 @@
+Disputa de Tarifas com Mastercard e Abuso de Poder Econômico
+
+Um episódio pouco conhecido, mas relevante para o entendimento do modelo de negócios do Nubank, ocorreu em 2021, quando a adquirente Getnet (do grupo Santander) entrou com uma ação judicial contra a Mastercard e o próprio Nubank. A acusação era clara: prática de cobrança abusiva de tarifas em transações feitas com cartões pré-pagos do Nubank — que, na prática, funcionam como cartões de débito.
+
+Segundo a ação, o Nubank, em conivência com a Mastercard, aplicava uma taxa de 1,2% sobre essas transações, quase o dobro do teto de 0,5% a 0,8% definido pelo Banco Central para operações de débito. A Getnet alegou que isso gerou um prejuízo estimado em R$ 62 milhões às adquirentes. O caso foi enquadrado como possível abuso de poder econômico, já que Mastercard teria autorizado esse arranjo tarifário fora do padrão legal, beneficiando diretamente o Nubank em detrimento da concorrência .
+
+Esse episódio dialoga diretamente com o padrão de atuação identificado ao longo deste dossiê: o Nubank se posiciona publicamente como um agente “revolucionário” contra os vícios do sistema bancário tradicional, mas opera nos bastidores com estratégias concentradoras, jurídicas agressivas e alianças institucionais que ampliam sua vantagem competitiva mesmo à margem de regulação técnica. Ao usar a infraestrutura de uma das maiores bandeiras globais para operar fora do escopo tarifário legal, a fintech demonstrou disposição em contornar normas — ainda que isso impacte diretamente o equilíbrio de mercado.
+
+Mais uma vez, observa-se a dissonância entre discurso e prática: enquanto promove “transparência, inclusão e acessibilidade”, o Nubank atua para preservar margens ocultas, intermediar tarifas com pouca clareza pública e disputar espaço com os mesmos mecanismos históricos que antes dizia combater. Essa disputa com a Mastercard ajuda a ilustrar que o projeto Nubank não é apenas uma mudança de interface — é, na essência, uma disputa pelo controle silencioso de estruturas financeiras com as mesmas lógicas do sistema que prometia reformar.
+
+Ref - Fonte: Valor Econômico, 27/08/2021 – “Getnet entra na Justiça contra Mastercard e Nubank por tarifas no débito”. Disponível em: https://valor.globo.com/financas/noticia/2021/08/27/getnet-entra-na-justica-contra-mastercard-e-nubank-por-tarifas-no-debito.ghtml
