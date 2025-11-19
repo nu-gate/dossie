@@ -220,6 +220,22 @@
             margin-right: 20px;
         }
 
+        .version-banner {
+            margin-top: 18px;
+            padding: 12px 18px;
+            border: 2px solid var(--border);
+            background: linear-gradient(135deg, rgba(155, 77, 230, 0.2), rgba(210, 176, 255, 0.1));
+            color: var(--text-bright);
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(155, 77, 230, 0.25);
+            text-shadow: 0 0 8px rgba(210, 176, 255, 0.4);
+            animation: signal 2.5s infinite;
+        }
+
         /* Sumário */
         #toc {
             border: 1px solid var(--border);
@@ -490,6 +506,12 @@
         .cursor {
             animation: blink 1s infinite;
         }
+
+        @keyframes signal {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.01); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -518,6 +540,7 @@
                 <span>|</span>
                 <span data-i18n="meta.classification">CLASSIFICAÇÃO: PÚBLICO</span>
             </div>
+            <div class="version-banner" role="status" aria-live="polite" data-i18n="header.versionSoon">VERSÃO 2.0 EM PRODUÇÃO — REVELAÇÕES AINDA MAIS CONTUNDENTES EM BREVE</div>
         </header>
 
         <!-- Sumário -->
@@ -995,6 +1018,7 @@
                 'language.en': 'English',
                 'language.es': 'Spanish',
                 'header.subtitle': 'Relations with the Public Sector, Tax Strategies, Labor Policies and Corporate Governance — the dossier that reveals what marketing hides: state alliances, offshores, internal repression and the contradictions of a billion-dollar brand that promised to reinvent the system — but only painted it purple.',
+                'header.versionSoon': 'VERSION 2.0 IN PRODUCTION — EVEN BOLDER REVELATIONS DROPPING SOON',
                 'meta.update': 'LAST UPDATE: 11/18/2025',
                 'meta.version': 'VERSION: 1.3',
                 'meta.classification': 'CLASSIFICATION: PUBLIC',
@@ -1145,6 +1169,7 @@
                 'language.en': 'Inglés',
                 'language.es': 'Español',
                 'header.subtitle': 'Relaciones con el sector público, estrategias fiscales, políticas laborales y gobernanza corporativa: el dossier que revela lo que el marketing no muestra: alianzas con el Estado, offshores, represión interna y las contradicciones de una marca multimillonaria que prometió reinventar el sistema, pero solo lo pintó de morado.',
+                'header.versionSoon': 'VERSIÓN 2.0 EN PRODUCCIÓN — REVELACIONES AÚN MÁS CONTUNDENTES MUY PRONTO',
                 'meta.update': 'ÚLTIMA ACTUALIZACIÓN: 18/11/2025',
                 'meta.version': 'VERSIÓN: 1.3',
                 'meta.classification': 'CLASIFICACIÓN: PÚBLICO',
