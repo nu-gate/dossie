@@ -1,0 +1,31 @@
+Falhas Técnicas e Riscos Operacionais
+
+Em várias ocasiões recentes, o Nubank enfrentou falhas sistêmicas graves que passaram despercebidas do grande público. Em novembro de 2024, clientes relataram um bug que permitiu saques ilimitados nos caixas do Banco24Horas com cartão de crédito — muito além do limite padrão de 15% da fatura. Segundo relatos, militares da polícia chegaram a ser vistos nos caixas, enquanto muitos clientes realizavam saques de R$ 1.000 repetidamente, sem registro imediato no aplicativo【1】. Paralelamente, usuários identificaram cobranças duplicadas em faturas quitadas meses antes, o que gerou insegurança e revolta nas redes sociais【2】. A empresa, quando procurada, limitou-se a dizer que “não comenta casos específicos” e que os clientes deveriam procurar atendimento pelo app【2】.
+
+Outro episódio foi a pane no sistema de pagamentos via PIX em agosto de 2022, durante um dia de pagamento de salários. Transações ficaram “travadas” e valores permaneceram temporariamente bloqueados por falhas de roteamento, atingindo milhares de correntistas. O Ministério da Justiça (Senacon) notificou o Nubank e exigiu explicações, ressaltando que esse tipo de interrupção compromete a confiança no sistema financeiro【3】.
+
+Esses casos demonstram fragilidades técnicas estruturais. Apesar do marketing que exalta tecnologia e agilidade, o Nubank sofre com bugs operacionais que geram riscos financeiros para o público — agravando a percepção de instabilidade digital.
+
+Contradições Éticas e de Governança
+
+O Nubank sustenta um discurso institucional pautado em ética, integridade e respeito à pluralidade. Seu Código de Conduta afirma que o ambiente deve ser seguro, diverso, e que qualquer tipo de retaliação a denúncias é proibido【4】. No entanto, ações recentes mostram incoerências com esse princípio.
+
+Em novembro de 2025, após a imposição repentina de retorno ao escritório, 12 funcionários foram demitidos por justa causa após criticarem a medida em fóruns internos. As mensagens incluíam questionamentos, memes e reclamações — mas não agressões pessoais. A gestão classificou os protestos como “comportamento inadequado”, e o CEO David Vélez chegou a afirmar publicamente que os colaboradores haviam confundido o ambiente corporativo com “arquibancada de estádio”【5】. O episódio contradiz diretamente o próprio código, que preza pelo direito à crítica e ao feedback aberto — especialmente quando exercido sem ofensas【4】.
+
+Além disso, executivos da empresa foram associados a causas controversas. Em 2024, Cristina Junqueira, cofundadora do Nubank, divulgou em suas redes evento da produtora Brasil Paralelo — conhecida por promover conteúdos de extrema-direita. Internamente, isso causou tensão, já que a empresa declara compromisso com diversidade e inclusão. Pouco depois, descobriu-se que um ex-funcionário ligado à empresa e fundador de um fórum racista ocupava cargo de direção na Brasil Paralelo. Investigações mostraram que o Nubank sabia desse histórico, mas o manteve na empresa até 2018【6】.
+
+A forma como essas questões foram tratadas reforça a percepção de que o discurso público do Nubank — sobre diversidade, transparência e inclusão — é, muitas vezes, apenas uma ferramenta de branding. Na prática, a repressão à crítica e a complacência com figuras de perfil contraditório aos seus valores internos revelam um padrão de gestão que prioriza o controle hierárquico sobre o compromisso ético institucional.
+
+Fontes
+
+InfoMoney. “Bug no app do Nubank permite saques acima do permitido e gera filas em caixas.” Nov/2024.
+
+Tilt UOL. “Clientes relatam cobranças duplicadas em faturas antigas do Nubank.” Nov/2024.
+
+CNN Brasil. “Ministério da Justiça notifica Nubank e outros bancos por falha no PIX.” Ago/2022.
+
+Código de Conduta do Nubank – Versão Dez/2024 (documento enviado pelo usuário).
+
+Terra. “Fundador do Nubank diz que funcionários confundiram canal corporativo com estádio de futebol.” Nov/2025.
+
+Agência Pública. “Ex-funcionário do Nubank fundou fórum de ódio e hoje é diretor da Brasil Paralelo.” Jul/2024.
