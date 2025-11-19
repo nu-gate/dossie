@@ -1,0 +1,9 @@
+# robots.txt for Nu Gate dossier
+User-agent: *
+Allow: /
+
+# Block unnecessary internal docs
+Disallow: /docs/
+Disallow: /ia/
+
+Sitemap: https://nu-gate.github.io/dossie/sitemap.xml
