@@ -332,6 +332,7 @@
             margin-bottom: 60px;
             padding-bottom: 40px;
             border-bottom: 1px solid var(--border);
+            scroll-margin-top: 24px;
         }
 
         section:last-of-type {
@@ -490,6 +491,13 @@
             color: var(--text-bright);
             border-color: var(--accent);
             transform: translateY(-1px);
+        }
+
+        .share-icon {
+            width: 14px;
+            height: 14px;
+            display: block;
+            flex-shrink: 0;
         }
 
         .download-note {
@@ -1143,22 +1151,30 @@
         <li data-i18n="actions.item1">Compartilhe o dossiê com colegas, grupos de categoria e jornalistas.</li>
         <li data-i18n="actions.item2">Cobre posicionamento do seu sindicato sobre as denúncias e demandas trabalhistas.
         </li>
-        <li data-i18n="actions.item3">Se você é jornalista, pesquisador ou sindicalista e quer ajudar na versão 2.0,
-            envie um e-mail.</li>
     </ul>
     <div class="cta-links">
         <a class="cta-button" data-share="twitter"
             href="https://twitter.com/intent/tweet?text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank.%20Leia%20aqui%3A&url=https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F"
-            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTwitter">Compartilhar no X/Twitter</a>
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTwitter">
+            <img class="share-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDJiMGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0ibTQgNCAxNiAxNk0yMCA0IDQgMjAiLz48L3N2Zz4=">
+            <span>Compartilhar no X/Twitter</span>
+        </a>
         <a class="cta-button" data-share="telegram"
             href="https://t.me/share/url?url=https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F&text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank"
-            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTelegram">Compartilhar no Telegram</a>
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTelegram">
+            <img class="share-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDJiMGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIxIDMgMyAxMGw1IDJtMCAwIDIgNyAzLTQgNCAzIDQtMTUtMTggNyIvPjwvc3ZnPg==">
+            <span>Compartilhar no Telegram</span>
+        </a>
         <a class="cta-button" data-share="whatsapp"
             href="https://api.whatsapp.com/send?text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank%20https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F"
-            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareWhatsapp">Compartilhar no WhatsApp</a>
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareWhatsapp">
+            <img class="share-icon"
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDJiMGZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTEyIDNhOSA5IDAgMCAwLTcuOCAxMy41TDMgMjFsNC43LTEuMkE5IDkgMCAxIDAgMTIgM1oiLz48cGF0aCBkPSJNOC45IDkuOGMuMy0uNi42LS43IDEtLjcuMyAwIC43IDAgMS4xLjguNC43IDEgMS42IDEgMS42cy41LjggMS4yIDEuMmMuNy40IDEuMi4zIDEuNi4yLjQtLjEgMS0uNSAxLjEtLjkuMi0uNC4yLS44LjEtLjktLjEtLjEtLjItLjEtLjQtLjJsLS45LS40Yy0uMSAwLS4yLS4xLS4zIDAtLjEgMC0uMi4xLS4zLjIgMCAwLS4yLjMtLjMuNC0uMS4xLS4yLjEtLjQgMC0uMi0uMS0uNy0uMi0xLjMtLjktLjUtLjUtLjgtMS4xLS45LTEuMy0uMS0uMiAwLS4zLjEtLjQuMS0uMS4zLS4zLjQtLjQuMS0uMS4xLS4yLjItLjMgMC0uMSAwLS4yIDAtLjNsLS40LTFjLS4xLS4zLS4yLS40LS41LS41LS4zLS4xLS44LS4xLTEuMS4zLS40LjMtLjcuOC0uNyAxLjMgMCAuNS4xIDEgLjMgMS40LjIuNC42IDEuMiAxLjMgMS45LjcuNyAxLjYgMS4yIDIgMS40LjQuMSAxIC4zIDEuMi4zLjIgMCAuOC0uMSAxLjEtLjMuMy0uMiAxLjEtLjUgMS41LTEuMi40LS42LjQtMS4yLjQtMS40IDAtLjItLjEtLjMtLjMtLjRsLTEuNC0uNiIvPjwvc3ZnPg==">
+            <span>Compartilhar no WhatsApp</span>
+        </a>
     </div>
-    <p class="download-note" data-i18n="actions.note">Cada clique aqui gera um evento de engajamento — ajuda a medir
-        interesse real.</p>
 </section>
         </main>
 
@@ -1192,12 +1208,10 @@
                 'actions.lead': 'Turn reading into immediate action.',
                 'actions.item1': 'Share the dossier with coworkers, labor groups and journalists.',
                 'actions.item2': 'Ask your union to take a stance on the allegations and labor demands.',
-                'actions.item3': 'If you are a journalist, researcher or union leader and want to help with version 2.0, send an email.',
                 'actions.shareTwitter': 'Share on X/Twitter',
                 'actions.shareTelegram': 'Share on Telegram',
                 'actions.shareWhatsapp': 'Share on WhatsApp',
                 'actions.email': 'Open email to collaborate',
-                'actions.note': 'Every click here fires an engagement event — it helps measure real interest.',
                 'toc.title': '[ INDEX ]',
                 'toc.intro': '1. Introduction',
                 'toc.public': '2. Relations with the Public Sector and Regulators',
@@ -1359,12 +1373,10 @@
                 'actions.lead': 'Convierte la lectura en acción inmediata.',
                 'actions.item1': 'Comparte el dossier con colegas, grupos de categoría y periodistas.',
                 'actions.item2': 'Exige a tu sindicato posicionarse sobre las denuncias y demandas laborales.',
-                'actions.item3': 'Si eres periodista, investigador o sindicalista y quieres ayudar en la versión 2.0, envía un correo.',
                 'actions.shareTwitter': 'Compartir en X/Twitter',
                 'actions.shareTelegram': 'Compartir en Telegram',
                 'actions.shareWhatsapp': 'Compartir en WhatsApp',
                 'actions.email': 'Abrir correo para colaborar',
-                'actions.note': 'Cada clic aquí genera un evento de engagement: ayuda a medir el interés real.',
                 'toc.title': '[ ÍNDICE ]',
                 'toc.intro': '1. Introducción',
                 'toc.public': '2. Relaciones con el sector público y reguladores',
@@ -1636,14 +1648,14 @@
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || !href.startsWith('#')) return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const target = document.querySelector(href);
+                if (!target) return;
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+                history.replaceState(null, '', href);
             });
         });
 
