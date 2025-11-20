@@ -43,6 +43,7 @@
     <title>Nu Gate - Relações com Poder Público, Estratégias Fiscais e Governança</title>
     <link rel="icon" href="assets/images/favicon.ico">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="f8ba8d83-0542-405a-a541-187e8175808d"></script>
+    <script defer data-domain="nu-gate.github.io" src="https://plausible.io/js/script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,6 +135,19 @@
             pointer-events: none;
             z-index: 1000;
             opacity: 0.3;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--text-bright));
+            z-index: 1100;
+            transition: width 0.15s ease-out;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(155, 77, 230, 0.6);
         }
 
         .container {
@@ -234,6 +248,45 @@
             box-shadow: 0 0 20px rgba(155, 77, 230, 0.25);
             text-shadow: 0 0 8px rgba(210, 176, 255, 0.4);
             animation: signal 2.5s infinite;
+        }
+
+        .tldr-box {
+            border: 1px solid var(--border);
+            padding: 22px;
+            margin: 10px 0 30px;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.65));
+        }
+
+        .tldr-box h3 {
+            margin-top: 0;
+            color: var(--text-bright);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .tldr-box ul {
+            margin: 12px 0 0 18px;
+        }
+
+        .tldr-box li {
+            margin-bottom: 8px;
+        }
+
+        .tldr-hotlink {
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .tldr-hotlink a {
+            color: var(--text-bright);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .tldr-hotlink a:hover {
+            color: var(--accent);
         }
 
         /* Sumário */
@@ -398,6 +451,53 @@
             text-decoration: underline;
         }
 
+        .action-section {
+            background: var(--highlight);
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin: 20px 0 40px;
+        }
+
+        .action-section h2 {
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        .action-section ul {
+            margin-top: 10px;
+        }
+
+        .cta-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            background: rgba(18, 18, 18, 0.9);
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            color: var(--text-bright);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .download-note {
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
@@ -515,6 +615,7 @@
     </style>
 </head>
 <body>
+    <div id="progress-bar" aria-hidden="true"></div>
     <button id="back-to-top" type="button" aria-label="Voltar ao topo" data-i18n-aria-label="backToTop.aria">↑</button>
 
     <div class="container">
@@ -534,26 +635,47 @@
                 — o dossiê que revela o que o marketing não mostra: alianças com o Estado, offshores, repressão interna e as
                 contradições de uma marca bilionária que prometeu reinventar o sistema — mas só o pintou de roxo.</div>
             <div class="meta">
-                <span data-i18n="meta.update">ÚLTIMA ATUALIZAÇÃO: 19/11/2025</span>
+                <span data-i18n="meta.update">ÚLTIMA ATUALIZAÇÃO: 20/11/2025</span>
                 <span>|</span>
-                <span data-i18n="meta.version">VERSÃO: 1.3</span>
+                <span data-i18n="meta.version">VERSÃO: 1.4</span>
                 <span>|</span>
                 <span data-i18n="meta.classification">CLASSIFICAÇÃO: PÚBLICO</span>
             </div>
             <div class="version-banner" role="status" aria-live="polite" data-i18n="header.versionSoon">VERSÃO 2.0 EM PRODUÇÃO — REVELAÇÕES AINDA MAIS CONTUNDENTES EM BREVE</div>
         </header>
 
+        <div class="tldr-box">
+            <h3 data-i18n="tldr.title">TL;DR — O que este dossiê mostra</h3>
+            <p data-i18n="tldr.lead">Em 40 segundos, entenda por que este dossiê importa.</p>
+            <ul>
+                <li data-i18n="tldr.item1">Holding em paraíso fiscal + brechas regulatórias para pagar menos e crescer mais
+                    rápido.</li>
+                <li data-i18n="tldr.item2">Contrata ex-BC, fecha convênios públicos e ganha influência onde deveria ser
+                    regulado.</li>
+                <li data-i18n="tldr.item3">Demite quem critica, endurece home office e reprime trabalhadores — o oposto do
+                    discurso “cool”.</li>
+            </ul>
+            <div class="tldr-hotlink">
+                <a href="#demissoes-retaliacao" data-i18n="tldr.hotlink">Quer ir direto ao ponto sobre demissões por crítica
+                    interna e fim do home office? Clique aqui.</a>
+            </div>
+        </div>
+
         <!-- Sumário -->
         <div id="toc">
             <h2 data-i18n="toc.title">[ ÍNDICE ]</h2>
             <nav>
-                <a href="#introducao" data-i18n="toc.intro">1. Introdução</a>
-                <a href="#relacoes-publicas" data-i18n="toc.public">2. Relações com o Setor Público e Reguladores</a>
-                <a href="#estrategias-fiscais" data-i18n="toc.fiscal">3. Estratégias Fiscais e Estrutura Societária</a>
-                <a href="#cultura-interna" data-i18n="toc.culture">4. Cultura Interna, Conflitos e Políticas Trabalhistas</a>
-                <a href="#padroes" data-i18n="toc.patterns">5. Padrões de Comportamento e Governança Corporativa</a>
-                <a href="#conclusao" data-i18n="toc.conclusion">6. Conclusão</a>
-                <a href="#referencias" data-i18n="toc.references">7. Referências</a>
+                <a href="#introducao" data-i18n="toc.intro" data-section="Intro">1. Introdução</a>
+                <a href="#relacoes-publicas" data-i18n="toc.public" data-section="SetorPublico">2. Relações com o Setor Público e
+                    Reguladores</a>
+                <a href="#estrategias-fiscais" data-i18n="toc.fiscal" data-section="Fisco">3. Estratégias Fiscais e Estrutura
+                    Societária</a>
+                <a href="#cultura-interna" data-i18n="toc.culture" data-section="CulturaInterna">4. Cultura Interna, Conflitos e
+                    Políticas Trabalhistas</a>
+                <a href="#padroes" data-i18n="toc.patterns" data-section="Governanca">5. Padrões de Comportamento e Governança
+                    Corporativa</a>
+                <a href="#conclusao" data-i18n="toc.conclusion" data-section="Conclusao">6. Conclusão</a>
+                <a href="#referencias" data-i18n="toc.references" data-section="Referencias">7. Referências</a>
             </nav>
         </div>
 
@@ -685,7 +807,7 @@
                 <p data-i18n="culture.p8">A comunicação foi feita top-down em uma reunião virtual com milhares de funcionários e sem consulta prévia ao corpo de empregados ou ao sindicato. Dado que cerca de 70% dos 9.500 funcionários viviam fora dos polos onde o Nubank tem escritórios, o anúncio causou choque e indignação generalizados.<a href="#ref10" class="ref">[10]</a></p>
 
                 <div class="highlight-box">
-                    <h3 data-i18n="culture.highlight1.title">Demissões e Retaliação</h3>
+                    <h3 id="demissoes-retaliacao" data-i18n="culture.highlight1.title">Demissões e Retaliação</h3>
                     <p data-i18n="culture.highlight1.p1">A reação dos funcionários veio de forma crítica e massiva durante e após a reunião geral. Milhares de colaboradores
                         expressaram indignação nos canais internos: foram publicados memes, comentários irônicos, questionamentos
                         contundentes — alguns com tom ácido, outros carregados de frustração, mas sem ataques pessoais ou agressões diretas.
@@ -702,6 +824,20 @@
                         demitidos, tampouco ofensas pessoais diretas.</p>
                     <img src="assets/images/classe.jpg" alt="Consciencia de Classe" class="content-image" data-i18n-alt="culture.imageAlt4" loading="lazy" decoding="async">
                     <p class="image-caption" data-i18n="culture.highlight1.caption1">- esse foi um dos escolhidos para receber justa causa 🤨</p>
+                    <img src="assets/images/print-1.jpg" alt="Print 1" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
+                    <img src="assets/images/print-2.jpg" alt="Print 2" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
+                    <img src="assets/images/print-3.jpg" alt="Print 3" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
+                    <img src="assets/images/print-4.jpeg" alt="Print 4" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
+                    <img src="assets/images/print-5.jpg" alt="Print 5" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
+                    <p class="image-caption" data-i18n="culture.highlight1.caption1">- esse foi outro escolhido entre tantos para ser
+                        demitido</p>
+                    <img src="assets/images/print-6.jpg" alt="Print 6" class="content-image" data-i18n-alt="culture.imageAlt4"
+                        loading="lazy" decoding="async">
                     <p data-i18n="culture.highlight1.p3">O que mais gerou revolta foi a forma como a liderança justificou as demissões. Em entrevista ao Terra, o CEO David
                         Vélez disse: “Você não faz ideia do tipo de linguagem e comportamento dessas pessoas. Confundiram um canal
                         corporativo com rede social ou arquibancada de estádio. Você não aceitaria esse comportamento na sua própria
@@ -1000,13 +1136,40 @@
                     </p>
                 </div>
             </section>
+<section class="action-section" id="acoes">
+    <h2 data-i18n="actions.title">O que você pode fazer agora</h2>
+    <p data-i18n="actions.lead">Transforme a leitura em ação imediata.</p>
+    <ul>
+        <li data-i18n="actions.item1">Compartilhe o dossiê com colegas, grupos de categoria e jornalistas.</li>
+        <li data-i18n="actions.item2">Cobre posicionamento do seu sindicato sobre as denúncias e demandas trabalhistas.
+        </li>
+        <li data-i18n="actions.item3">Se você é jornalista, pesquisador ou sindicalista e quer ajudar na versão 2.0,
+            envie um e-mail.</li>
+    </ul>
+    <div class="cta-links">
+        <a class="cta-button" data-share="twitter"
+            href="https://twitter.com/intent/tweet?text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank.%20Leia%20aqui%3A&url=https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F"
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTwitter">Compartilhar no X/Twitter</a>
+        <a class="cta-button" data-share="telegram"
+            href="https://t.me/share/url?url=https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F&text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank"
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareTelegram">Compartilhar no Telegram</a>
+        <a class="cta-button" data-share="whatsapp"
+            href="https://api.whatsapp.com/send?text=Dossi%C3%AA%20cr%C3%ADtico%20sobre%20o%20Nubank%20https%3A%2F%2Fnu-gate.github.io%2Fdossie%2F"
+            target="_blank" rel="noopener noreferrer" data-i18n="actions.shareWhatsapp">Compartilhar no WhatsApp</a>
+        <a class="cta-button"
+            href="mailto:contato@nu-gate.dev?subject=Quero%20ajudar%20na%20vers%C3%A3o%202.0%20do%20dossi%C3%AA&body=Conte%20como%20voc%C3%AA%20pode%20contribuir%20(com%20fontes,%20dados,%20checagem%20ou%20distribui%C3%A7%C3%A3o)."
+            data-share="email" data-i18n="actions.email">Abrir e-mail para colaboração</a>
+    </div>
+    <p class="download-note" data-i18n="actions.note">Cada clique aqui gera um evento de engajamento — ajuda a medir
+        interesse real.</p>
+</section>
         </main>
 
         <!-- Footer -->
         <footer>
             <p data-i18n="footer.end">[ FIM DO DOCUMENTO ]</p>
             <p style="margin-top: 10px;" data-i18n="footer.note">Este é um documento de análise crítica baseado em fontes públicas.</p>
-            <p style="margin-top: 5px; opacity: 0.6;" data-i18n="footer.version">Versão 1.3 — atualizada em 19/11/2025</p>
+            <p style="margin-top: 5px; opacity: 0.6;" data-i18n="footer.version">Versão 1.4 — atualizada em 20/11/2025</p>
         </footer>
     </div>
 
@@ -1019,9 +1182,25 @@
                 'language.es': 'Spanish',
                 'header.subtitle': 'Relations with the Public Sector, Tax Strategies, Labor Policies and Corporate Governance — the dossier that reveals what marketing hides: state alliances, offshores, internal repression and the contradictions of a billion-dollar brand that promised to reinvent the system — but only painted it purple.',
                 'header.versionSoon': 'VERSION 2.0 IN PRODUCTION — EVEN BOLDER REVELATIONS DROPPING SOON',
-                'meta.update': 'LAST UPDATE: 11/19/2025',
-                'meta.version': 'VERSION: 1.3',
+                'meta.update': 'LAST UPDATE: 11/20/2025',
+                'meta.version': 'VERSION: 1.4',
                 'meta.classification': 'CLASSIFICATION: PUBLIC',
+                'tldr.title': 'TL;DR — What this dossier shows',
+                'tldr.lead': 'In 40 seconds, see why this dossier matters.',
+                'tldr.item1': 'Holding in a tax haven + regulatory loopholes to pay less and scale faster.',
+                'tldr.item2': 'Hires former Central Bank heads, signs public deals and gains sway where it should be regulated.',
+                'tldr.item3': 'Fires critics, tightens remote work and cracks down on staff — the opposite of the “cool” story.',
+                'tldr.hotlink': 'Want to jump straight to layoffs for internal criticism and the end of remote work? Click here.',
+                'actions.title': 'What you can do now',
+                'actions.lead': 'Turn reading into immediate action.',
+                'actions.item1': 'Share the dossier with coworkers, labor groups and journalists.',
+                'actions.item2': 'Ask your union to take a stance on the allegations and labor demands.',
+                'actions.item3': 'If you are a journalist, researcher or union leader and want to help with version 2.0, send an email.',
+                'actions.shareTwitter': 'Share on X/Twitter',
+                'actions.shareTelegram': 'Share on Telegram',
+                'actions.shareWhatsapp': 'Share on WhatsApp',
+                'actions.email': 'Open email to collaborate',
+                'actions.note': 'Every click here fires an engagement event — it helps measure real interest.',
                 'toc.title': '[ INDEX ]',
                 'toc.intro': '1. Introduction',
                 'toc.public': '2. Relations with the Public Sector and Regulators',
@@ -1160,7 +1339,7 @@
                 'references.note': 'Note: This dossier was compiled from publicly available sources, including journalistic reports, official statements and public documents. All information contained here can be verified through the sources cited above.',
                 'footer.end': '[ END OF DOCUMENT ]',
                 'footer.note': 'This is a critical analysis document based on public sources.',
-                'footer.version': 'Version 1.3 — updated on 11/19/2025',
+                'footer.version': 'Version 1.4 — updated on 11/20/2025',
                 'backToTop.aria': 'Back to top'
             },
             es: {
@@ -1170,9 +1349,25 @@
                 'language.es': 'Español',
                 'header.subtitle': 'Relaciones con el sector público, estrategias fiscales, políticas laborales y gobernanza corporativa: el dossier que revela lo que el marketing no muestra: alianzas con el Estado, offshores, represión interna y las contradicciones de una marca multimillonaria que prometió reinventar el sistema, pero solo lo pintó de morado.',
                 'header.versionSoon': 'VERSIÓN 2.0 EN PRODUCCIÓN — REVELACIONES AÚN MÁS CONTUNDENTES MUY PRONTO',
-                'meta.update': 'ÚLTIMA ACTUALIZACIÓN: 19/11/2025',
-                'meta.version': 'VERSIÓN: 1.3',
+                'meta.update': 'ÚLTIMA ACTUALIZACIÓN: 20/11/2025',
+                'meta.version': 'VERSIÓN: 1.4',
                 'meta.classification': 'CLASIFICACIÓN: PÚBLICO',
+                'tldr.title': 'TL;DR — Qué muestra este dossier',
+                'tldr.lead': 'En 40 segundos, mira por qué este dossier importa.',
+                'tldr.item1': 'Holding en paraíso fiscal + brechas regulatorias para pagar menos y escalar más rápido.',
+                'tldr.item2': 'Contrata ex BC, cierra convenios públicos y gana influencia donde debería ser regulado.',
+                'tldr.item3': 'Despide críticos, endurece el home office y reprime trabajadores: justo lo opuesto al discurso “cool”.',
+                'tldr.hotlink': '¿Quieres ir directo al punto sobre despidos por crítica interna y fin del home office? Haz clic aquí.',
+                'actions.title': 'Qué puedes hacer ahora',
+                'actions.lead': 'Convierte la lectura en acción inmediata.',
+                'actions.item1': 'Comparte el dossier con colegas, grupos de categoría y periodistas.',
+                'actions.item2': 'Exige a tu sindicato posicionarse sobre las denuncias y demandas laborales.',
+                'actions.item3': 'Si eres periodista, investigador o sindicalista y quieres ayudar en la versión 2.0, envía un correo.',
+                'actions.shareTwitter': 'Compartir en X/Twitter',
+                'actions.shareTelegram': 'Compartir en Telegram',
+                'actions.shareWhatsapp': 'Compartir en WhatsApp',
+                'actions.email': 'Abrir correo para colaborar',
+                'actions.note': 'Cada clic aquí genera un evento de engagement: ayuda a medir el interés real.',
                 'toc.title': '[ ÍNDICE ]',
                 'toc.intro': '1. Introducción',
                 'toc.public': '2. Relaciones con el sector público y reguladores',
@@ -1315,7 +1510,7 @@
                 'references.note': 'Nota: Este dossier fue compilado a partir de fuentes públicas disponibles, incluidas reportajes periodísticas, declaraciones oficiales y documentos públicos. Toda la información aquí contenida puede verificarse por las fuentes citadas arriba.',
                 'footer.end': '[ FIN DEL DOCUMENTO ]',
                 'footer.note': 'Este es un documento de análisis crítico basado en fuentes públicas.',
-                'footer.version': 'Versión 1.3 — actualizada el 19/11/2025',
+                'footer.version': 'Versión 1.4 — actualizada el 20/11/2025',
                 'backToTop.aria': 'Volver al inicio'
             }
         };
@@ -1378,7 +1573,17 @@
             setLanguage(event.target.value);
         });
 
+                const sendPlausibleEvent = (name, options) => {
+                    if (typeof window.plausible === 'function') {
+                        window.plausible(name, options);
+                    }
+                };
+
         const backToTop = document.getElementById('back-to-top');
+                const progressBar = document.getElementById('progress-bar');
+                const scrollThresholds = [25, 50, 75, 90];
+                const firedScrollEvents = new Set();
+                let scrollTicking = false;
 
         const toggleBackToTop = () => {
             const scrollY = window.scrollY || document.documentElement.scrollTop;
@@ -1389,8 +1594,41 @@
             }
         };
 
-        window.addEventListener('scroll', toggleBackToTop);
-        toggleBackToTop();
+                const calculateScrollPercent = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    if (docHeight <= 0) return 0;
+                    return Math.min(100, (scrollTop / docHeight) * 100);
+                };
+
+                const updateScrollProgress = () => {
+                    const percent = calculateScrollPercent();
+                    if (progressBar) {
+                        progressBar.style.width = `${percent}%`;
+                    }
+
+                    scrollThresholds.forEach(threshold => {
+                        if (!firedScrollEvents.has(threshold) && percent >= threshold) {
+                            firedScrollEvents.add(threshold);
+                            sendPlausibleEvent(`Scroll_${threshold}`);
+                        }
+                    });
+                };
+
+                const handleScroll = () => {
+                    toggleBackToTop();
+                            updateScrollProgress();
+                        };
+
+                        window.addEventListener('scroll', () => {
+                            if (scrollTicking) return;
+                            scrollTicking = true;
+                            requestAnimationFrame(() => {
+                                handleScroll();
+                                scrollTicking = false;
+                            });
+                        });
+                        handleScroll();
 
         backToTop.addEventListener('click', () => {
             window.scrollTo({
@@ -1411,6 +1649,27 @@
                 }
             });
         });
+
+                document.querySelectorAll('#toc nav a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        const section = link.dataset.section || link.textContent.trim();
+                        sendPlausibleEvent('Indice_Clique', { props: { section } });
+                    });
+                });
+
+                const hotlink = document.querySelector('.tldr-hotlink a');
+                if (hotlink) {
+                    hotlink.addEventListener('click', () => {
+                        sendPlausibleEvent('Atalho_Demissoes');
+                    });
+                }
+
+                document.querySelectorAll('[data-share]').forEach(link => {
+                    link.addEventListener('click', () => {
+                        const channel = link.dataset.share || 'unknown';
+                        sendPlausibleEvent('Share', { props: { channel } });
+                    });
+                });
 
         console.log('%c[ DOSSIÊ NUBANK ]', 'color: #c084fc; font-family: monospace; font-size: 20px; font-weight: bold;');
         console.log('%cDocumento confidencial carregado com sucesso.', 'color: #a855f7; font-family: monospace; font-size: 12px;');
